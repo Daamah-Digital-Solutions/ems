@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#140E0B"/>
+      <stop offset="1" stop-color="#0B0706"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="78%" cy="30%" r="55%">
+      <stop offset="0" stop-color="#FF4524" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#FF4524" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- brand ring -->
+  <g transform="translate(96 96)">
+    <circle cx="34" cy="34" r="30" fill="none" stroke="#ED3B1B" stroke-width="11"
+            stroke-linecap="round" stroke-dasharray="158 32" transform="rotate(-128 34 34)"/>
+    <text x="92" y="30" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#F5EEE5">EMS</text>
+    <text x="92" y="58" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#A89E92" letter-spacing="2">ElRiyadh</text>
+  </g>
+
+  <!-- headline -->
+  <text x="96" y="330" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="92" font-weight="800" fill="#F5EEE5" letter-spacing="-2">The studio</text>
+  <text x="96" y="430" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="92" font-weight="800" fill="#F5EEE5" letter-spacing="-2">comes to <tspan fill="#FF4524">you.</tspan></text>
+
+  <!-- subline -->
+  <text x="100" y="520" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="500" fill="#C9BFB4">Premium mobile EMS training · Riyadh · 20 min, twice a week</text>
+  <text x="100" y="566" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#8C8378">German-engineered with MyoStyle®</text>
+</svg>
