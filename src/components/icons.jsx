@@ -33,6 +33,17 @@ export function Arrow() {
   )
 }
 
+// Globe — marks the language switch (distinct from the theme toggle).
+export function GlobeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3c2.7 2.5 2.7 15.5 0 18M12 3c-2.7 2.5-2.7 15.5 0 18" />
+    </svg>
+  )
+}
+
 // Check mark used in the session lists (inherits stroke from CSS).
 export function Check() {
   return (

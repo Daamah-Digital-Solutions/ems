@@ -58,6 +58,9 @@ const en = {
     closeMenu: 'Close menu',
     switchToArabic: 'التبديل إلى العربية',
     switchToEnglish: 'Switch to English',
+    language: 'Language',
+    english: 'English',
+    arabic: 'العربية',
   },
 
   ticker: {
@@ -454,6 +457,25 @@ const en = {
     title: 'Page not',
     accent: 'found',
     text: "That page doesn't exist. Use the menu above, or head back home.",
+  },
+
+  // Per-route SEO metadata (title + meta/OG description). Brand verbatim.
+  seo: {
+    brand: 'EMS ElRiyadh',
+    defaultDesc: 'Premium one-on-one EMS training brought to your home, hotel or compound in Riyadh. German-engineered with MyoStyle®. 20 minutes, twice a week.',
+    routes: {
+      '/': { title: 'EMS ElRiyadh — The studio comes to you', desc: 'Premium one-on-one EMS training brought to your home, hotel or compound in Riyadh. German-engineered with MyoStyle®. 20 minutes, twice a week.' },
+      '/about': { title: 'About · EMS ElRiyadh', desc: 'The idea behind EMS ElRiyadh — private, one-on-one EMS training that comes to you across Riyadh, powered by the German MyoStyle® system.' },
+      '/how-it-works': { title: 'How EMS Works · EMS ElRiyadh', desc: 'How EMS works and what a session feels like — twenty guided minutes with a dedicated trainer, anywhere in Riyadh.' },
+      '/pricing': { title: 'Sessions & Plans · EMS ElRiyadh', desc: 'EMS ElRiyadh plans by what’s included — Trial, weekly and bespoke. Enquire on WhatsApp for the right option.' },
+      '/locations': { title: 'Coverage · EMS ElRiyadh', desc: 'All of Riyadh — home, hotel or compound. Flexible scheduling, the studio comes to you.' },
+      '/results': { title: 'Results & Reviews · EMS ElRiyadh', desc: 'What to expect from EMS ElRiyadh — a consistent, time-efficient routine with real one-on-one coaching.' },
+      '/faq': { title: 'FAQ · EMS ElRiyadh', desc: 'Common questions about EMS training with EMS ElRiyadh — the session, the suit, coverage and booking.' },
+      '/articles': { title: 'Articles · EMS ElRiyadh', desc: 'Short, practical reads on training efficiently and staying consistent with EMS in Riyadh.' },
+      '/contact': { title: 'Contact & Book · EMS ElRiyadh', desc: 'Book your EMS ElRiyadh session — share a few details and we’ll open WhatsApp with your message ready to send.' },
+      '/privacy': { title: 'Privacy Policy · EMS ElRiyadh', desc: 'How EMS ElRiyadh collects and uses your information.' },
+      '/terms': { title: 'Terms of Service · EMS ElRiyadh', desc: 'The terms for using the EMS ElRiyadh website and training with us.' },
+    },
   },
 
   // Article content keyed by slug. tag/read/title/excerpt + body blocks.

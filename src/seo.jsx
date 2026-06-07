@@ -1,36 +1,25 @@
 import { useEffect } from 'react'
 import { SITE } from './constants'
 import { hasArticle } from './data/articles'
+import { useLang } from './i18n'
 import en from './i18n/en'
+import ar from './i18n/ar'
 
-const BRAND = 'EMS ElRiyadh'
-const DEFAULT_DESC =
-  'Premium one-on-one EMS training brought to your home, hotel or compound in Riyadh. German-engineered with MyoStyle®. 20 minutes, twice a week.'
+const DICTS = { en, ar }
 const OG_IMAGE = `${SITE}/og-image.png` // TODO: final OG image (current: red bg + brand icon + name)
+const OG_LOCALE = { en: 'en_US', ar: 'ar_SA' }
 
-// Per-route metadata. Title shown as "<page> · EMS ElRiyadh" (Home is special).
-const ROUTES = {
-  '/': { title: `${BRAND} — The studio comes to you`, desc: DEFAULT_DESC },
-  '/about': { title: `About · ${BRAND}`, desc: 'The idea behind EMS ElRiyadh — private, one-on-one EMS training that comes to you across Riyadh, powered by the German MyoStyle® system.' },
-  '/how-it-works': { title: `How EMS Works · ${BRAND}`, desc: 'How EMS works and what a session feels like — twenty guided minutes with a dedicated trainer, anywhere in Riyadh.' },
-  '/pricing': { title: `Sessions & Plans · ${BRAND}`, desc: 'EMS ElRiyadh plans by what’s included — Trial, weekly and bespoke. Enquire on WhatsApp for the right option.' },
-  '/locations': { title: `Coverage · ${BRAND}`, desc: 'All of Riyadh — home, hotel or compound. Flexible scheduling, the studio comes to you.' },
-  '/results': { title: `Results & Reviews · ${BRAND}`, desc: 'What to expect from EMS ElRiyadh — a consistent, time-efficient routine with real one-on-one coaching.' },
-  '/faq': { title: `FAQ · ${BRAND}`, desc: 'Common questions about EMS training with EMS ElRiyadh — the session, the suit, coverage and booking.' },
-  '/articles': { title: `Articles · ${BRAND}`, desc: 'Short, practical reads on training efficiently and staying consistent with EMS in Riyadh.' },
-  '/contact': { title: `Contact & Book · ${BRAND}`, desc: 'Book your EMS ElRiyadh session — share a few details and we’ll open WhatsApp with your message ready to send.' },
-  '/privacy': { title: `Privacy Policy · ${BRAND}`, desc: 'How EMS ElRiyadh collects and uses your information.' },
-  '/terms': { title: `Terms of Service · ${BRAND}`, desc: 'The terms for using the EMS ElRiyadh website and training with us.' },
-}
-
-function resolve(pathname) {
-  if (ROUTES[pathname]) return ROUTES[pathname]
+// Resolve per-route title + description from the active language dictionary.
+// Article pages reuse the localized post title/excerpt.
+function resolve(dict, pathname) {
+  const r = dict.seo.routes[pathname]
+  if (r) return { title: r.title, desc: r.desc }
   const m = pathname.match(/^\/articles\/(.+)$/)
   if (m && hasArticle(m[1])) {
-    const post = en.art[m[1]]
-    if (post) return { title: `${post.title} · ${BRAND}`, desc: post.excerpt }
+    const post = dict.art[m[1]]
+    if (post) return { title: `${post.title} · ${dict.seo.brand}`, desc: post.excerpt }
   }
-  return { title: BRAND, desc: DEFAULT_DESC }
+  return { title: dict.seo.brand, desc: dict.seo.defaultDesc }
 }
 
 // Upsert a <meta> tag identified by name/property.
@@ -54,11 +43,15 @@ function canonical(href) {
   el.setAttribute('href', href)
 }
 
-// Sets document title + meta/OG/Twitter/canonical on each navigation.
+// Sets document title + meta/OG/Twitter/canonical on each navigation and on
+// language change (Arabic when lang=ar, English when lang=en).
 export function useSeo(pathname) {
+  const { lang } = useLang()
   useEffect(() => {
-    const { title, desc } = resolve(pathname)
+    const dict = DICTS[lang] || en
+    const { title, desc } = resolve(dict, pathname)
     const url = `${SITE}${pathname}`
+    const altLang = lang === 'ar' ? 'en' : 'ar'
     document.title = title
     meta('name', 'description', desc)
     canonical(url)
@@ -66,11 +59,13 @@ export function useSeo(pathname) {
     meta('property', 'og:description', desc)
     meta('property', 'og:url', url)
     meta('property', 'og:type', 'website')
-    meta('property', 'og:site_name', BRAND)
+    meta('property', 'og:site_name', dict.seo.brand)
     meta('property', 'og:image', OG_IMAGE)
+    meta('property', 'og:locale', OG_LOCALE[lang] || 'en_US')
+    meta('property', 'og:locale:alternate', OG_LOCALE[altLang])
     meta('name', 'twitter:card', 'summary_large_image')
     meta('name', 'twitter:title', title)
     meta('name', 'twitter:description', desc)
     meta('name', 'twitter:image', OG_IMAGE)
-  }, [pathname])
+  }, [pathname, lang])
 }

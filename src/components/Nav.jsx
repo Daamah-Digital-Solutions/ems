@@ -5,13 +5,13 @@ import { useTheme } from '../hooks/useTheme'
 import { useLang } from '../i18n'
 import { waLink } from '../constants'
 import { LINKS } from '../nav'
-import { WaIcon } from './icons'
+import { WaIcon, GlobeIcon } from './icons'
 import emsIcon from '../ems-icon.svg'
 
 export default function Nav() {
   const scrolled = useNavScrolled(30)
   const { toggle } = useTheme()
-  const { t, lang, toggle: toggleLang } = useLang()
+  const { t, lang, setLang, toggle: toggleLang } = useLang()
   const { pathname } = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -64,7 +64,8 @@ export default function Nav() {
             onClick={toggleLang}
             aria-label={lang === 'en' ? t('nav.switchToArabic') : t('nav.switchToEnglish')}
           >
-            {lang === 'en' ? 'ع' : 'EN'}
+            <GlobeIcon />
+            <span className="lc">{lang === 'en' ? 'ع' : 'EN'}</span>
           </button>
           <button className="tg" onClick={toggle} aria-label={t('nav.toggleTheme')}>
             <span className="k" aria-hidden="true" />
@@ -108,6 +109,30 @@ export default function Nav() {
             </NavLink>
           ))}
         </nav>
+        <div className="m-lang-wrap">
+          <span className="m-lang-h">
+            <GlobeIcon />
+            {t('nav.language')}
+          </span>
+          <div className="m-lang" role="group" aria-label={t('nav.language')}>
+            <button
+              type="button"
+              className={lang === 'en' ? 'on' : ''}
+              aria-pressed={lang === 'en'}
+              onClick={() => setLang('en')}
+            >
+              {t('nav.english')}
+            </button>
+            <button
+              type="button"
+              className={lang === 'ar' ? 'on' : ''}
+              aria-pressed={lang === 'ar'}
+              onClick={() => setLang('ar')}
+            >
+              {t('nav.arabic')}
+            </button>
+          </div>
+        </div>
         <a
           className="btn-lg"
           href={waLink(BOOK_MSG)}

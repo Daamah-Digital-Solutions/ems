@@ -58,6 +58,9 @@ const ar = {
     closeMenu: 'إغلاق القائمة',
     switchToArabic: 'التبديل إلى العربية',
     switchToEnglish: 'Switch to English',
+    language: 'اللغة',
+    english: 'English',
+    arabic: 'العربية',
   },
 
   ticker: {
@@ -454,6 +457,25 @@ const ar = {
     title: 'الصفحة غير',
     accent: 'موجودة',
     text: 'هذه الصفحة غير موجودة. استخدم القائمة بالأعلى، أو عُد إلى الرئيسية.',
+  },
+
+  // Per-route SEO metadata (title + meta/OG description). Brand verbatim.
+  seo: {
+    brand: 'EMS ElRiyadh',
+    defaultDesc: 'تدريب EMS فاخر فردي يصل إلى منزلك أو فندقك أو مجمّعك في الرياض. بهندسة ألمانية مع MyoStyle®. 20 دقيقة، مرتين أسبوعياً.',
+    routes: {
+      '/': { title: 'EMS ElRiyadh — الاستوديو يأتي إليك', desc: 'تدريب EMS فاخر فردي يصل إلى منزلك أو فندقك أو مجمّعك في الرياض. بهندسة ألمانية مع MyoStyle®. 20 دقيقة، مرتين أسبوعياً.' },
+      '/about': { title: 'من نحن · EMS ElRiyadh', desc: 'فكرة EMS ElRiyadh — تدريب EMS فردي وخاص يأتي إليك عبر الرياض، مدعوم بنظام MyoStyle® الألماني.' },
+      '/how-it-works': { title: 'كيف يعمل EMS · EMS ElRiyadh', desc: 'كيف يعمل EMS وكيف تشعر بالجلسة — عشرون دقيقة موجّهة مع مدرّب مختصّ، في أي مكان بالرياض.' },
+      '/pricing': { title: 'الجلسات والباقات · EMS ElRiyadh', desc: 'باقات EMS ElRiyadh بحسب ما تتضمّنه — تجريبية وأسبوعية ومخصّصة. استفسر عبر واتساب عن الخيار الأنسب.' },
+      '/locations': { title: 'مناطق التغطية · EMS ElRiyadh', desc: 'كل الرياض — المنزل أو الفندق أو المجمّع. جدولة مرنة، والاستوديو يأتي إليك.' },
+      '/results': { title: 'النتائج والآراء · EMS ElRiyadh', desc: 'ما الذي تتوقّعه من EMS ElRiyadh — روتين منتظم وموفّر للوقت مع تدريب فردي حقيقي.' },
+      '/faq': { title: 'الأسئلة الشائعة · EMS ElRiyadh', desc: 'أسئلة شائعة عن تدريب EMS مع EMS ElRiyadh — الجلسة والبدلة والتغطية والحجز.' },
+      '/articles': { title: 'المقالات · EMS ElRiyadh', desc: 'قراءات قصيرة وعملية عن التدريب بكفاءة والمحافظة على الانتظام مع EMS في الرياض.' },
+      '/contact': { title: 'تواصل واحجز · EMS ElRiyadh', desc: 'احجز جلستك مع EMS ElRiyadh — شارك بعض التفاصيل ونفتح لك واتساب برسالتك جاهزة للإرسال.' },
+      '/privacy': { title: 'سياسة الخصوصية · EMS ElRiyadh', desc: 'كيف يجمع EMS ElRiyadh معلوماتك ويستخدمها.' },
+      '/terms': { title: 'شروط الخدمة · EMS ElRiyadh', desc: 'شروط استخدام موقع EMS ElRiyadh والتدريب معنا.' },
+    },
   },
 
   art: {
