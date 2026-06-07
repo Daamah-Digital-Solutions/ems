@@ -1,5 +1,6 @@
 import { waLink } from '../constants'
 import { Check, WaIcon } from '../components/icons'
+import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
 
 // Plans are presented by INCLUSIONS only — never by price. Every CTA routes to
@@ -86,17 +87,13 @@ export default function Pricing() {
             </div>
           </div>
 
-          <div className="phero-media rv d1">
-            <svg className="arc" viewBox="0 0 600 600" aria-hidden="true" preserveAspectRatio="none">
-              <path d="M70,540 C40,300 180,70 470,60 C300,120 150,300 220,560" />
-            </svg>
-            <div className="plate">
-              <img src="/images/cut2.jpg" alt="A premium EMS session brought to your space" decoding="async" />
-            </div>
-            <div className="fbadge b1">
-              <span className="v">20<small style={{ fontSize: '.6em' }}>′</small></span>
-              <span className="k">per<br />session</span>
-            </div>
+          <div className="phero-media phero-media-icon">
+            <HeroIcon>
+              {/* layered plans */}
+              <path d="M12 3.5l8.5 4.75L12 13 3.5 8.25z" />
+              <path d="M3.5 12L12 16.75 20.5 12" />
+              <path d="M3.5 15.5L12 20.25 20.5 15.5" />
+            </HeroIcon>
           </div>
         </div>
       </section>

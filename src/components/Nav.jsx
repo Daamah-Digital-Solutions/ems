@@ -3,8 +3,9 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useNavScrolled } from '../hooks/useScrollReveal'
 import { useTheme } from '../hooks/useTheme'
 import { waLink } from '../constants'
-import { PRIMARY, MORE } from '../nav'
-import { Ring, WaIcon } from './icons'
+import { LINKS } from '../nav'
+import { WaIcon } from './icons'
+import emsIcon from '../ems-icon.svg'
 
 const BOOK_MSG = "Hi EMS ElRiyadh, I'd like to book a session."
 
@@ -12,12 +13,10 @@ export default function Nav() {
   const scrolled = useNavScrolled(30)
   const { toggle } = useTheme()
   const { pathname } = useLocation()
-  const [moreOpen, setMoreOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
-  // Close both menus on navigation.
+  // Close the mobile menu on navigation.
   useEffect(() => {
-    setMoreOpen(false)
     setMenuOpen(false)
   }, [pathname])
 
@@ -29,13 +28,10 @@ export default function Nav() {
     }
   }, [menuOpen])
 
-  // Escape closes whatever is open.
+  // Escape closes the mobile menu.
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'Escape') {
-        setMoreOpen(false)
-        setMenuOpen(false)
-      }
+      if (e.key === 'Escape') setMenuOpen(false)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
@@ -45,7 +41,7 @@ export default function Nav() {
     <>
       <header className={`nav${scrolled ? ' scrolled' : ''}`}>
         <Link to="/" className="brand" aria-label="EMS ElRiyadh home">
-          <Ring />
+          <img className="brand-mark" src={emsIcon} alt="" />
           <span className="wm">
             <b>EMS</b>
             <span>ElRiyadh</span>
@@ -53,35 +49,11 @@ export default function Nav() {
         </Link>
 
         <nav className="nav-mid">
-          {PRIMARY.map(([to, label]) => (
+          {LINKS.map(([to, label]) => (
             <NavLink key={to} to={to}>
               {label}
             </NavLink>
           ))}
-
-          <div
-            className={`nav-more${moreOpen ? ' open' : ''}`}
-            onBlur={(e) => {
-              if (!e.currentTarget.contains(e.relatedTarget)) setMoreOpen(false)
-            }}
-          >
-            <button
-              type="button"
-              className="nav-more-btn"
-              aria-expanded={moreOpen}
-              aria-haspopup="true"
-              onClick={() => setMoreOpen((o) => !o)}
-            >
-              More <span className="chev" aria-hidden="true" />
-            </button>
-            <div className="nav-more-panel" role="menu">
-              {MORE.map(([to, label]) => (
-                <NavLink key={to} to={to} role="menuitem">
-                  {label}
-                </NavLink>
-              ))}
-            </div>
-          </div>
         </nav>
 
         <div className="nav-r">
@@ -121,7 +93,7 @@ export default function Nav() {
       />
       <aside className={`m-menu${menuOpen ? ' open' : ''}`} aria-hidden={!menuOpen}>
         <nav className="m-links">
-          {[...PRIMARY, ...MORE].map(([to, label]) => (
+          {LINKS.map(([to, label]) => (
             <NavLink key={to} to={to}>
               {label}
             </NavLink>

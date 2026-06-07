@@ -5,7 +5,7 @@ import { getArticle } from './data/articles'
 const BRAND = 'EMS ElRiyadh'
 const DEFAULT_DESC =
   'Premium one-on-one EMS training brought to your home, hotel or compound in Riyadh. German-engineered with MyoStyle®. 20 minutes, twice a week.'
-const OG_IMAGE = `${SITE}/og-image.svg` // TODO: also export og-image.png for platforms that don't accept SVG (e.g. Twitter)
+const OG_IMAGE = `${SITE}/og-image.png` // TODO: final OG image (current: red bg + brand icon + name)
 
 // Per-route metadata. Title shown as "<page> · EMS ElRiyadh" (Home is special).
 const ROUTES = {

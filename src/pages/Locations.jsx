@@ -1,5 +1,6 @@
 import { waLink } from '../constants'
 import { Arrow, WaIcon } from '../components/icons'
+import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
 
 // Coverage = ALL of Riyadh (home / hotel / compound). No specific districts,
@@ -101,17 +102,12 @@ export default function Locations() {
             </div>
           </div>
 
-          <div className="phero-media rv d1">
-            <svg className="arc" viewBox="0 0 600 600" aria-hidden="true" preserveAspectRatio="none">
-              <path d="M70,540 C40,300 180,70 470,60 C300,120 150,300 220,560" />
-            </svg>
-            <div className="plate">
-              <img src="/images/cut3.jpg" alt="An EMS session set up in a client's own space" decoding="async" />
-            </div>
-            <div className="fbadge b1">
-              <span className="v">Riyadh</span>
-              <span className="k">city-wide<br />coverage</span>
-            </div>
+          <div className="phero-media phero-media-icon">
+            <HeroIcon>
+              {/* map pin */}
+              <path d="M12 21s-6.5-5-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 16 12 21 12 21z" />
+              <circle cx="12" cy="10.5" r="2.4" />
+            </HeroIcon>
           </div>
         </div>
       </section>

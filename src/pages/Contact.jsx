@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { waLink, WA, PHONE, EMAIL, IG_HANDLE, INSTAGRAM } from '../constants'
 import { WaIcon, IgIcon } from '../components/icons'
+import HeroIcon from '../components/HeroIcon'
 import Final from '../components/Final'
 
 const PLANS = ['Trial — first session', '2×20 per week', 'Concierge / bespoke', 'Not sure yet']
@@ -48,20 +49,27 @@ export default function Contact() {
 
   return (
     <>
-      <section className="phead">
-        <svg className="arc" viewBox="0 0 600 600" aria-hidden="true" preserveAspectRatio="none">
-          <path d="M70,540 C40,300 180,70 470,60 C300,120 150,300 220,560" />
-        </svg>
-        <div className="wrap">
-          <span className="eyebrow rv">Get in touch</span>
-          <h1 className="rv d1">
-            Book your <span className="r">session.</span>
-          </h1>
-          <p className="lede rv d2">
-            Tell us a few details and we’ll open WhatsApp with your message ready
-            to send — or reach us directly. We’ll confirm a time and your location
-            anywhere in Riyadh.
-          </p>
+      <section className="phead phero">
+        <div className="wrap phero-grid">
+          <div className="phero-copy">
+            <span className="eyebrow rv">Get in touch</span>
+            <h1 className="rv d1">
+              Book your <span className="r">session.</span>
+            </h1>
+            <p className="lede rv d2">
+              Tell us a few details and we’ll open WhatsApp with your message ready
+              to send — or reach us directly. We’ll confirm a time and your location
+              anywhere in Riyadh.
+            </p>
+          </div>
+
+          <div className="phero-media phero-media-icon">
+            <HeroIcon>
+              {/* chat bubble */}
+              <path d="M20 4H4a1.6 1.6 0 0 0-1.6 1.6v8.8A1.6 1.6 0 0 0 4 16h3v3.8L11.2 16H20a1.6 1.6 0 0 0 1.6-1.6V5.6A1.6 1.6 0 0 0 20 4z" />
+              <path d="M8 10h.01M12 10h.01M16 10h.01" />
+            </HeroIcon>
+          </div>
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ARTICLES } from '../data/articles'
 import { waLink } from '../constants'
 import { WaIcon } from '../components/icons'
+import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
 
 export default function Articles() {
@@ -31,17 +32,12 @@ export default function Articles() {
             </div>
           </div>
 
-          <div className="phero-media rv d1">
-            <svg className="arc" viewBox="0 0 600 600" aria-hidden="true" preserveAspectRatio="none">
-              <path d="M70,540 C40,300 180,70 470,60 C300,120 150,300 220,560" />
-            </svg>
-            <div className="plate">
-              <img src="/images/soc2.jpg" alt="EMS ElRiyadh training" decoding="async" />
-            </div>
-            <div className="fbadge b1">
-              <span className="v">20<small style={{ fontSize: '.6em' }}>′</small></span>
-              <span className="k">reads &amp;<br />routines</span>
-            </div>
+          <div className="phero-media phero-media-icon">
+            <HeroIcon>
+              {/* article / document with lines */}
+              <rect x="5" y="3.5" width="14" height="17" rx="2.2" />
+              <path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4.5" />
+            </HeroIcon>
           </div>
         </div>
       </section>
@@ -67,10 +63,7 @@ export default function Articles() {
               </Link>
             ))}
           </div>
-          <p className="fine rv">
-            Sample articles shown for layout — real posts will replace these.
-            {/* TODO: replace placeholder articles with real content (or wire to a CMS/markdown source) */}
-          </p>
+          {/* TODO: wire to a CMS / markdown source as the journal grows */}
         </div>
       </section>
 

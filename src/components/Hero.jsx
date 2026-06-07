@@ -43,7 +43,7 @@ export default function Hero({ loaded }) {
         </svg>
         <div className="frame">
           <img
-            src="/images/hero.jpg"
+            src="/images/final-hero.jpg"
             alt="An EMS ElRiyadh trainer coaching a client through a session"
             decoding="async"
           />

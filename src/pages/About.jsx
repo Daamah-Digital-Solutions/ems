@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { waLink } from '../constants'
 import { WaIcon } from '../components/icons'
+import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
 
 // Values behind the service — only facts we have: comes to you, private/1:1,
@@ -82,21 +83,14 @@ export default function About() {
             </div>
           </div>
 
-          <div className="phero-media rv d1">
-            <svg className="arc" viewBox="0 0 600 600" aria-hidden="true" preserveAspectRatio="none">
-              <path d="M70,540 C40,300 180,70 470,60 C300,120 150,300 220,560" />
-            </svg>
-            <div className="plate">
-              <img src="/images/hero.jpg" alt="An EMS ElRiyadh trainer coaching a client" decoding="async" />
-            </div>
-            <div className="fbadge b1">
-              <span className="v">1:1</span>
-              <span className="k">private<br />sessions</span>
-            </div>
-            <div className="fbadge b2 float">
-              <span className="v">2×</span>
-              <span className="k">a week<br />· 20 min</span>
-            </div>
+          <div className="phero-media phero-media-icon">
+            <HeroIcon>
+              {/* people / one-on-one */}
+              <circle cx="9" cy="8.5" r="3.2" />
+              <path d="M3.5 19.5v-1a4.5 4.5 0 0 1 4.5-4.5h2a4.5 4.5 0 0 1 4.5 4.5v1" />
+              <circle cx="16.5" cy="9.5" r="2.3" />
+              <path d="M15.5 14.2h1a4 4 0 0 1 4 4v1.3" />
+            </HeroIcon>
           </div>
         </div>
       </section>

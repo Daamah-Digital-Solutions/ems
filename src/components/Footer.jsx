@@ -1,22 +1,25 @@
 import { Link } from 'react-router-dom'
 import { WA, PHONE } from '../constants'
-import { PRIMARY, MORE, LEGAL } from '../nav'
-import { Ring } from './icons'
+import { LINKS, LEGAL } from '../nav'
+import emsIcon from '../ems-icon.svg'
 
 export default function Footer() {
+  const half = Math.ceil(LINKS.length / 2)
+  const colA = LINKS.slice(0, half)
+  const colB = LINKS.slice(half)
   return (
     <footer>
       <div className="foot">
         <div className="fb">
-          <Ring style={{ width: 40, height: 40 }} />
+          <img className="brand-mark" src={emsIcon} alt="" style={{ width: 40, height: 40 }} />
           <span className="wm">
             <b>EMS ElRiyadh</b>
-            <span>Mobile EMS training · Riyadh, KSA</span>
+            <span>EMS training · Riyadh, KSA</span>
           </span>
         </div>
         <div className="fcol">
           <span className="h">Explore</span>
-          {PRIMARY.map(([to, label]) => (
+          {colA.map(([to, label]) => (
             <Link key={to} to={to}>
               {label}
             </Link>
@@ -24,7 +27,7 @@ export default function Footer() {
         </div>
         <div className="fcol">
           <span className="h">Discover</span>
-          {MORE.map(([to, label]) => (
+          {colB.map(([to, label]) => (
             <Link key={to} to={to}>
               {label}
             </Link>

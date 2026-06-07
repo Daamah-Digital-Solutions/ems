@@ -8,9 +8,10 @@
   <link rel="canonical" href="https://emselriyadh.com/" />
   <meta name="theme-color" content="#ED3B1B" />
 
-  <!-- Icons (built from the brand red ring) -->
+  <!-- Icons (generated from src/ems-icon.svg via scripts/gen-icons.mjs) -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <!-- Open Graph / Twitter (static defaults; per-route values set at runtime). -->
   <meta property="og:type" content="website" />
@@ -18,11 +19,15 @@
   <meta property="og:title" content="EMS ElRiyadh — The studio comes to you" />
   <meta property="og:description" content="Premium one-on-one EMS training brought to your home, hotel or compound in Riyadh. German-engineered with MyoStyle®. 20 minutes, twice a week." />
   <meta property="og:url" content="https://emselriyadh.com/" />
-  <meta property="og:image" content="https://emselriyadh.com/og-image.svg" />
+  <!-- TODO: final OG image. PNG is used because WhatsApp/Twitter don't render SVG previews. -->
+  <meta property="og:image" content="https://emselriyadh.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="EMS ElRiyadh — the studio comes to you" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="EMS ElRiyadh — The studio comes to you" />
   <meta name="twitter:description" content="Premium one-on-one EMS training that comes to you across Riyadh. German-engineered with MyoStyle®." />
-  <meta name="twitter:image" content="https://emselriyadh.com/og-image.svg" />
+  <meta name="twitter:image" content="https://emselriyadh.com/og-image.png" />
 
   <!-- LocalBusiness structured data -->
   <script type="application/ld+json">
@@ -34,7 +39,7 @@
     "url": "https://emselriyadh.com",
     "telephone": "+966540899508",
     "email": "info@emselriyadh.com",
-    "image": "https://emselriyadh.com/og-image.svg",
+    "image": "https://emselriyadh.com/og-image.png",
     "areaServed": { "@type": "City", "name": "Riyadh" },
     "address": { "@type": "PostalAddress", "addressLocality": "Riyadh", "addressCountry": "SA" },
     "priceRange": "$$$",

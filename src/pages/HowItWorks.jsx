@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { waLink } from '../constants'
 import { WaIcon } from '../components/icons'
+import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
 
 // The general EMS principle — strictly descriptive, no medical or
@@ -114,21 +115,11 @@ export default function HowItWorks() {
             </div>
           </div>
 
-          <div className="phero-media rv d1">
-            <svg className="arc" viewBox="0 0 600 600" aria-hidden="true" preserveAspectRatio="none">
-              <path d="M70,540 C40,300 180,70 470,60 C300,120 150,300 220,560" />
-            </svg>
-            <div className="plate">
-              <img src="/images/soc2.jpg" alt="An EMS ElRiyadh training session" decoding="async" />
-            </div>
-            <div className="fbadge b1">
-              <span className="v">20<small style={{ fontSize: '.6em' }}>′</small></span>
-              <span className="k">focused<br />minutes</span>
-            </div>
-            <div className="fbadge b2 float">
-              <span className="v">1:1</span>
-              <span className="k">always<br />guided</span>
-            </div>
+          <div className="phero-media phero-media-icon">
+            <HeroIcon>
+              {/* EMS impulse / pulse waveform — same brand stroke style as the icons */}
+              <path d="M2 12h4l2.5 7 4-14 2.5 7h2l1.5-3 1.5 3H22" />
+            </HeroIcon>
           </div>
         </div>
       </section>

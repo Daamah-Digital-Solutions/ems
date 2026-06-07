@@ -1,16 +1,13 @@
 // Navigation map — single source of truth for Nav + Footer.
 // Labels live here as data so the later Arabic/RTL layer is a translation,
-// not a rewrite. [path, label].
-export const PRIMARY = [
+// not a rewrite. [path, label]. All links show inline in the nav bar.
+export const LINKS = [
   ['/about', 'About'],
   ['/how-it-works', 'How EMS Works'],
   ['/pricing', 'Pricing'],
   ['/locations', 'Locations'],
-  ['/faq', 'FAQ'],
-]
-
-export const MORE = [
   ['/results', 'Results'],
+  ['/faq', 'FAQ'],
   ['/articles', 'Articles'],
   ['/contact', 'Contact'],
 ]

@@ -1,5 +1,6 @@
 import { waLink } from '../constants'
 import { WaIcon } from '../components/icons'
+import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
 
 // "What to expect" — qualitative and experiential only. No numbers, ratings,
@@ -50,17 +51,13 @@ export default function Results() {
             </div>
           </div>
 
-          <div className="phero-media rv d1">
-            <svg className="arc" viewBox="0 0 600 600" aria-hidden="true" preserveAspectRatio="none">
-              <path d="M70,540 C40,300 180,70 470,60 C300,120 150,300 220,560" />
-            </svg>
-            <div className="plate">
-              <img src="/images/soc3.jpg" alt="A client during an EMS ElRiyadh session" decoding="async" />
-            </div>
-            <div className="fbadge b1">
-              <span className="v">1:1</span>
-              <span className="k">real<br />coaching</span>
-            </div>
+          <div className="phero-media phero-media-icon">
+            <HeroIcon>
+              {/* upward trend + spark */}
+              <path d="M3 16.5l5.5-5.5 3.5 3.5L20 7" />
+              <path d="M15 7h5v5" />
+              <path d="M5.4 4.1l.6 1.7 1.7.6-1.7.6-.6 1.7-.6-1.7L3.1 7l1.7-.6z" />
+            </HeroIcon>
           </div>
         </div>
       </section>
@@ -120,12 +117,7 @@ export default function Results() {
               </div>
             ))}
           </div>
-          <p className="fine rv">
-            Reviews shown are placeholders for layout and will be replaced with
-            real, consented client feedback. EMS ElRiyadh is a fitness &amp;
-            wellbeing service, not a medical device or treatment.
-            {/* TODO: replace placeholder testimonials with real, consented client reviews */}
-          </p>
+          {/* TODO: replace placeholder testimonials with real, consented client reviews */}
         </div>
       </section>
 

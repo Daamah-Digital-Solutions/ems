@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { waLink } from '../constants'
 import { WaIcon } from '../components/icons'
+import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
 
 // Full Q&A. Compliant — fitness/experience only, no prices, no medical or
@@ -104,17 +105,12 @@ export default function Faq() {
             </div>
           </div>
 
-          <div className="phero-media rv d1">
-            <svg className="arc" viewBox="0 0 600 600" aria-hidden="true" preserveAspectRatio="none">
-              <path d="M70,540 C40,300 180,70 470,60 C300,120 150,300 220,560" />
-            </svg>
-            <div className="plate">
-              <img src="/images/soc1.jpg" alt="An EMS ElRiyadh training session" decoding="async" />
-            </div>
-            <div className="fbadge b1">
-              <span className="v">20<small style={{ fontSize: '.6em' }}>′</small></span>
-              <span className="k">twice<br />a week</span>
-            </div>
+          <div className="phero-media phero-media-icon">
+            <HeroIcon>
+              {/* question mark */}
+              <path d="M8.6 9.2a3.4 3.4 0 1 1 5 3c-1.1.8-1.6 1.4-1.6 2.8" />
+              <path d="M12 18.6h.01" />
+            </HeroIcon>
           </div>
         </div>
       </section>
