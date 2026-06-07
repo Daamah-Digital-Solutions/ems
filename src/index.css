@@ -103,14 +103,19 @@ header.nav.scrolled{background:color-mix(in srgb,var(--bg) 86%,transparent);back
 .m-links{display:flex;flex-direction:column}
 .m-links a{padding:.95rem .2rem;font-family:"Sora";font-weight:700;font-size:1.15rem;color:var(--ink);border-bottom:1px solid var(--line-2);transition:color .25s}
 .m-links a:hover,.m-links a.active{color:var(--red)}
-/* language switch inside the mobile menu (flex gap handles vertical spacing) */
+/* language switch inside the mobile menu — flag dropdown */
 .m-lang-h{display:flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:.7rem}
 .m-lang-h svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.m-lang{display:flex;gap:.5rem}
-.m-lang button{flex:1;padding:.75rem;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--soft);
-  font-family:"Sora",sans-serif;font-weight:700;font-size:.92rem;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
-.m-lang button:hover{border-color:var(--red);color:var(--ink)}
-.m-lang button.on{background:var(--red);color:#fff;border-color:var(--red)}
+.m-lang-select{position:relative}
+.m-lang-select select{appearance:none;-webkit-appearance:none;width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid var(--line);
+  background:var(--panel);color:var(--ink);font:inherit;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-weight:600;font-size:1rem;
+  cursor:pointer;transition:border-color .25s,box-shadow .25s}
+html[lang="ar"] .m-lang-select select{font-family:"IBM Plex Sans Arabic",system-ui,sans-serif}
+.m-lang-select select:hover{border-color:var(--red)}
+.m-lang-select select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px color-mix(in srgb,var(--red) 18%,transparent)}
+.m-lang-select .chev{position:absolute;top:50%;right:.9rem;transform:translateY(-50%);width:18px;height:18px;pointer-events:none;
+  fill:none;stroke:var(--soft);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+html[dir="rtl"] .m-lang-select .chev{right:auto;left:.9rem}
 .m-menu .btn-lg{justify-content:center;margin-top:auto}
 .nav-r{display:flex;align-items:center;gap:.9rem}
 /* language toggle (globe + EN / ع) — globe marks it as a language switch */
@@ -120,8 +125,9 @@ header.nav.scrolled{background:color-mix(in srgb,var(--bg) 86%,transparent);back
 .lang .lc{min-width:1.2ch;text-align:center}
 .lang:hover{border-color:var(--red);color:var(--ink)}
 .lang:focus-visible{outline:2px solid var(--red);outline-offset:3px}
-/* on very small screens keep just the globe (full switch lives in the menu) */
-@media(max-width:520px){.lang{padding:0 .5rem}.lang .lc{display:none}.nav-r{gap:.6rem}}
+/* on mobile/tablet (burger shown) the top bar stays clean — the language
+   switch moves into the side menu as a flag dropdown */
+@media(max-width:960px){.lang{display:none}.nav-r{gap:.6rem}}
 .tg{width:54px;height:28px;border-radius:30px;border:1px solid var(--line);background:var(--panel);position:relative;cursor:pointer;flex:none;transition:border-color .3s}
 .tg:hover{border-color:var(--red)}.tg:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .tg .k{position:absolute;top:50%;left:3px;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;

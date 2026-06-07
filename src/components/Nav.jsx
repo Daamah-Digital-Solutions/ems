@@ -110,27 +110,23 @@ export default function Nav() {
           ))}
         </nav>
         <div className="m-lang-wrap">
-          <span className="m-lang-h">
+          <label className="m-lang-h" htmlFor="m-lang-select">
             <GlobeIcon />
             {t('nav.language')}
-          </span>
-          <div className="m-lang" role="group" aria-label={t('nav.language')}>
-            <button
-              type="button"
-              className={lang === 'en' ? 'on' : ''}
-              aria-pressed={lang === 'en'}
-              onClick={() => setLang('en')}
+          </label>
+          <div className="m-lang-select">
+            <select
+              id="m-lang-select"
+              value={lang}
+              onChange={(e) => setLang(e.target.value)}
+              aria-label={t('nav.language')}
             >
-              {t('nav.english')}
-            </button>
-            <button
-              type="button"
-              className={lang === 'ar' ? 'on' : ''}
-              aria-pressed={lang === 'ar'}
-              onClick={() => setLang('ar')}
-            >
-              {t('nav.arabic')}
-            </button>
+              <option value="en">🇬🇧 English</option>
+              <option value="ar">🇸🇦 العربية</option>
+            </select>
+            <svg className="chev" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
           </div>
         </div>
         <a

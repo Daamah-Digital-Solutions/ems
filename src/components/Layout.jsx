@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useSeo } from '../seo'
+import { useLang } from '../i18n'
 import { initAnalytics, trackPageView, trackLead } from '../analytics'
 
 import Loader from './Loader'
@@ -15,9 +16,11 @@ import MobileBook from './MobileBook'
 // `loaded` is passed to pages via Outlet context — Home forwards it to <Hero/>.
 export default function Layout({ loaded }) {
   const { pathname, hash } = useLocation()
+  const { lang } = useLang()
 
-  // Re-observe `.rv` / `.arc` elements on the freshly-mounted page.
-  useScrollReveal(pathname)
+  // Re-observe `.rv` / `.arc` elements on the freshly-mounted page AND whenever
+  // the language flips (re-render can remount nodes, dropping their `.in`).
+  useScrollReveal(pathname, lang)
 
   // Per-route document title / meta / OG / canonical.
   useSeo(pathname)

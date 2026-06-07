@@ -1,10 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 // Adds `.in` to every `.rv` and `.arc` element when it scrolls into view,
 // and primes the neon-arc SVG paths for their draw animation.
-// Pass a `key` (e.g. the route pathname) so it re-observes the fresh DOM
-// after each navigation — every page is built with `.rv` reveals.
-export function useScrollReveal(key) {
+//
+// Re-runs on every navigation AND on language change. A language switch
+// re-renders content and can REMOUNT `.rv` nodes (many list items are keyed by
+// their translated text), which drops the imperatively-added `.in` class and
+// would otherwise leave whole sections stuck at opacity:0. Since the content
+// was already on screen before the flip, on a language-only change we reveal
+// everything immediately — no blank sections, no viewport math, no re-animation.
+export function useScrollReveal(pathname, lang) {
+  const prev = useRef({ pathname: null, lang: null })
   useEffect(() => {
     // Belt-and-suspenders: the pre-paint script in index.html already adds this
     // under (prefers-reduced-motion: no-preference). Re-assert it here so the
@@ -15,8 +21,16 @@ export function useScrollReveal(key) {
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (!reduce) document.documentElement.classList.add('reveal-ready')
 
-    const els = document.querySelectorAll('.rv, .arc')
     const reveal = (el) => el.classList.add('in')
+    // Robust viewport height/width (some embeds report window.innerHeight as 0).
+    const vh = window.innerHeight || document.documentElement.clientHeight || 0
+    const vw = window.innerWidth || document.documentElement.clientWidth || 0
+    const inView = (el) => {
+      const r = el.getBoundingClientRect()
+      return r.top < vh && r.bottom > 0 && r.left < vw && r.right > 0
+    }
+
+    const els = document.querySelectorAll('.rv, .arc')
 
     // prime arc paths (stroke draw)
     document.querySelectorAll('.arc path').forEach((p) => {
@@ -29,11 +43,23 @@ export function useScrollReveal(key) {
       }
     })
 
-    // No IntersectionObserver (or reduced motion) → reveal everything now.
-    if (reduce || typeof IntersectionObserver === 'undefined') {
+    const sameRoute = prev.current.pathname === pathname
+    const langChanged = prev.current.lang !== null && prev.current.lang !== lang
+    const langFlipOnly = sameRoute && langChanged
+    prev.current = { pathname, lang }
+
+    // Reduced motion, no IntersectionObserver, or a language flip on the same
+    // page → reveal everything now so nothing is ever stuck hidden.
+    if (reduce || typeof IntersectionObserver === 'undefined' || langFlipOnly) {
       els.forEach(reveal)
       return
     }
+
+    // Immediately reveal anything already in the viewport (no wait for the
+    // observer's first async callback), then observe the rest for scroll.
+    els.forEach((el) => {
+      if (inView(el)) reveal(el)
+    })
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -46,22 +72,23 @@ export function useScrollReveal(key) {
       },
       { threshold: 0.14 }
     )
-    els.forEach((el) => io.observe(el))
+    els.forEach((el) => {
+      if (!el.classList.contains('in')) io.observe(el)
+    })
 
-    // Failsafe: if the observer never fires for something already on-screen
-    // (short pages, above the fold), reveal it so it's never stuck hidden.
+    // Failsafe: reveal anything still on-screen if the observer never fired —
+    // never leave a section blank.
     const failsafe = setTimeout(() => {
       els.forEach((el) => {
-        const r = el.getBoundingClientRect()
-        if (r.top < window.innerHeight && r.bottom > 0) reveal(el)
+        if (inView(el)) reveal(el)
       })
-    }, 1400)
+    }, 1200)
 
     return () => {
       io.disconnect()
       clearTimeout(failsafe)
     }
-  }, [key])
+  }, [pathname, lang])
 }
 
 // Returns true once the page has been scrolled past `offset`px.
