@@ -1,18 +1,18 @@
 // Navigation map — single source of truth for Nav + Footer.
-// Labels live here as data so the later Arabic/RTL layer is a translation,
-// not a rewrite. [path, label]. All links show inline in the nav bar.
+// Second item is an i18n key (resolved with t()) so the bilingual layer is a
+// translation, not a rewrite. [path, i18nKey].
 export const LINKS = [
-  ['/about', 'About'],
-  ['/how-it-works', 'How EMS Works'],
-  ['/pricing', 'Pricing'],
-  ['/locations', 'Locations'],
-  ['/results', 'Results'],
-  ['/faq', 'FAQ'],
-  ['/articles', 'Articles'],
-  ['/contact', 'Contact'],
+  ['/about', 'nav.about'],
+  ['/how-it-works', 'nav.how'],
+  ['/pricing', 'nav.pricing'],
+  ['/locations', 'nav.locations'],
+  ['/results', 'nav.results'],
+  ['/faq', 'nav.faq'],
+  ['/articles', 'nav.articles'],
+  ['/contact', 'nav.contact'],
 ]
 
 export const LEGAL = [
-  ['/privacy', 'Privacy'],
-  ['/terms', 'Terms'],
+  ['/privacy', 'nav.privacy'],
+  ['/terms', 'nav.terms'],
 ]

@@ -1,27 +1,23 @@
 import { waLink, WA, PHONE } from '../constants'
+import { useLang, rich } from '../i18n'
 import { WaIcon } from './icons'
 
 // Compact closing CTA for inner pages — much shorter than the full <Final/>
 // (which stays on Home + Contact). One line + WhatsApp button + phone.
-export default function CtaStrip({
-  line = (
-    <>
-      Ready when <span className="r">you are.</span>
-    </>
-  ),
-  message = "Hi EMS ElRiyadh, I'd like to book a session.",
-}) {
+// lineKey -> i18n key for the headline (supports [[accent]] markers).
+export default function CtaStrip({ lineKey = 'cta.defaultLine', msgKey = 'msg.session' }) {
+  const { t } = useLang()
   return (
     <section className="ctastrip">
       <div className="wrap cta-in rv">
-        <p className="ct">{line}</p>
+        <p className="ct">{rich(t(lineKey))}</p>
         <div className="cta-act">
-          <a className="btn-lg" href={waLink(message)} target="_blank" rel="noopener noreferrer">
+          <a className="btn-lg" href={waLink(t(msgKey))} target="_blank" rel="noopener noreferrer">
             <WaIcon />
-            Book on WhatsApp
+            {t('common.bookWhatsApp')}
           </a>
           <span className="ph">
-            or call{' '}
+            {t('common.orCall')}{' '}
             <a href={WA} target="_blank" rel="noopener noreferrer">{PHONE}</a>
           </span>
         </div>

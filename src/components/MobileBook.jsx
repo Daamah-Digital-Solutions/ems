@@ -1,16 +1,18 @@
 import { waLink } from '../constants'
+import { useLang } from '../i18n'
 import { WaIcon } from './icons'
 
 export default function MobileBook() {
+  const { t } = useLang()
   return (
     <div className="mbook">
       <a
-        href={waLink("Hi EMS ElRiyadh, I'd like to book a session.")}
+        href={waLink(t('msg.session'))}
         target="_blank"
         rel="noopener noreferrer"
       >
         <WaIcon />
-        Book on WhatsApp
+        {t('common.bookWhatsApp')}
       </a>
     </div>
   )

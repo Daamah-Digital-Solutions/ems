@@ -105,6 +105,11 @@ header.nav.scrolled{background:color-mix(in srgb,var(--bg) 86%,transparent);back
 .m-links a:hover,.m-links a.active{color:var(--red)}
 .m-menu .btn-lg{justify-content:center;margin-top:auto}
 .nav-r{display:flex;align-items:center;gap:.9rem}
+/* language toggle (EN / ع) */
+.lang{min-width:34px;height:28px;padding:0 .5rem;border-radius:30px;border:1px solid var(--line);background:var(--panel);color:var(--soft);
+  font-family:"Sora",sans-serif;font-weight:700;font-size:.82rem;line-height:1;cursor:pointer;flex:none;transition:border-color .3s,color .3s}
+.lang:hover{border-color:var(--red);color:var(--ink)}
+.lang:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .tg{width:54px;height:28px;border-radius:30px;border:1px solid var(--line);background:var(--panel);position:relative;cursor:pointer;flex:none;transition:border-color .3s}
 .tg:hover{border-color:var(--red)}.tg:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .tg .k{position:absolute;top:50%;left:3px;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;
@@ -496,3 +501,64 @@ footer{background:var(--panel-2);border-top:1px solid var(--line-2);padding:clam
 .stub{min-height:70vh;padding-top:clamp(7.5rem,13vw,9.5rem);display:flex;align-items:flex-start}
 .stub-lead{max-width:54ch;color:var(--soft);font-size:1.05rem;margin-top:.4rem}
 .stub code{font-family:ui-monospace,monospace;background:var(--panel-2);padding:.1rem .4rem;border-radius:6px;color:var(--red)}
+
+/* ============================================================
+   ARABIC + RTL
+   - Arabic web font for all UI text (Sora/Jakarta have no Arabic).
+   - Mirror physical-direction decoration that dir=rtl can't auto-flip.
+   Brand wordmark + loader stay Latin (Sora). Numbers stay LTR.
+   ============================================================ */
+html[lang="ar"] body,
+html[lang="ar"] body *{font-family:"IBM Plex Sans Arabic","Plus Jakarta Sans",system-ui,sans-serif !important}
+/* keep the Latin brand wordmark + loader in the display face */
+html[lang="ar"] .brand .wm b,
+html[lang="ar"] .foot .fb .wm b,
+html[lang="ar"] #loader .lt{font-family:"Sora",sans-serif !important}
+/* Arabic display headings: a touch more line-height so diacritics breathe */
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] .phead h1,html[lang="ar"] .hero h1,
+html[lang="ar"] .final h2,html[lang="ar"] .shead h2{line-height:1.15;letter-spacing:0}
+
+/* text alignment for the few explicitly-left elements */
+html[dir="rtl"] .fq{text-align:right}
+
+/* absolutely-positioned chips/badges/numbers — swap the pinned side */
+html[dir="rtl"] .nav-mid>a::after{left:auto;right:0}
+html[dir="rtl"] .step .pic .no{left:auto;right:1rem}
+html[dir="rtl"] .wc .tag{left:auto;right:1.2rem}
+html[dir="rtl"] .sg .ig{left:auto;right:1rem}
+html[dir="rtl"] .scard .badge{right:auto;left:1.4rem}
+html[dir="rtl"] .fbadge.b1{left:auto;right:-4%}
+html[dir="rtl"] .fbadge.b2{right:auto;left:-3%}
+@media(max-width:920px){
+  html[dir="rtl"] .fbadge.b1{right:2%}
+  html[dir="rtl"] .fbadge.b2{left:2%}
+}
+
+/* readiness/note callout accent bar moves to the right edge */
+html[dir="rtl"] .note{border-left:1px solid var(--line);border-right:3px solid var(--red)}
+
+/* prose lists indent from the right */
+html[dir="rtl"] .prose ul{padding-left:0;padding-right:1.2rem}
+html[dir="rtl"] .prose li{padding-left:0;padding-right:.3rem}
+
+/* mobile menu slides in from the left in RTL */
+html[dir="rtl"] .m-menu{right:auto;left:0;border-left:none;border-right:1px solid var(--line);transform:translateX(-100%)}
+html[dir="rtl"] .m-menu.open{transform:translateX(0)}
+
+/* neon arc mirrors horizontally */
+html[dir="rtl"] .hero-media .arc{left:auto;right:-15%;transform:scaleX(-1)}
+html[dir="rtl"] .phero-media .arc{left:auto;right:-13%;transform:scaleX(-1)}
+html[dir="rtl"] .phead .arc{right:auto;left:-4%;transform:scaleX(-1)}
+
+/* inline arrows flip to point the other way (and animate the other way) */
+html[dir="rtl"] .ghost .a,
+html[dir="rtl"] .wc .go svg,
+html[dir="rtl"] .acard .more span{display:inline-block;transform:scaleX(-1)}
+html[dir="rtl"] .ghost:hover .a{transform:scaleX(-1) translateX(5px)}
+html[dir="rtl"] .wc:hover .go svg{transform:scaleX(-1) translateX(5px)}
+html[dir="rtl"] .backlink svg{transform:none}
+
+/* marquee ticker scrolls the other way so it stays seamless */
+html[dir="rtl"] .ticker .t{animation-name:tick-rtl}
+@keyframes tick-rtl{to{transform:translateX(50%)}}
+@media (prefers-reduced-motion:reduce){html[dir="rtl"] .ticker .t{animation:none}}

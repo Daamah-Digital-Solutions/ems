@@ -1,9 +1,11 @@
 import Stub from '../components/Stub'
+import { useLang } from '../i18n'
 
 export default function NotFound() {
+  const { t } = useLang()
   return (
-    <Stub eyebrow="404" title="Page not" accent="found">
-      That page doesn&apos;t exist. Use the menu above, or head back home.
+    <Stub eyebrow={t('notFound.eyebrow')} title={t('notFound.title')} accent={t('notFound.accent')}>
+      {t('notFound.text')}
     </Stub>
   )
 }

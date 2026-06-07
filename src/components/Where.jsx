@@ -1,57 +1,43 @@
 import { waLink } from '../constants'
+import { useLang } from '../i18n'
 import { Arrow } from './icons'
 
-const PLACES = [
-  {
-    tag: 'Home',
-    title: 'At Home',
-    text: "Living room, terrace or garden — wherever you're most at ease.",
-    img: 'https://images.unsplash.com/photo-1586439496903-c96e9f18f212?q=80&w=1100&auto=format&fit=crop',
-    msg: "Hi, I'd like a session at home.",
-  },
-  {
-    tag: 'Hotel',
-    title: 'In Your Hotel',
-    text: 'Travelling through Riyadh? Keep your rhythm without finding a gym.',
-    img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1100&auto=format&fit=crop',
-    msg: "Hi, I'd like a session at my hotel.",
-  },
-  {
-    tag: 'Compound',
-    title: 'On Your Compound',
-    text: 'Private, discreet sessions inside your community, on your schedule.',
-    img: 'https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=1100&auto=format&fit=crop',
-    msg: "Hi, I'd like a session on my compound.",
-  },
+const IMGS = [
+  'https://images.unsplash.com/photo-1586439496903-c96e9f18f212?q=80&w=1100&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1100&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=1100&auto=format&fit=crop',
 ]
+const MSGS = ['msg.atHome', 'msg.atHotel', 'msg.atCompound']
 
 export default function Where() {
+  const { t } = useLang()
+  const places = t('where.places')
   return (
     <section id="where" className="pad">
       <div className="wrap">
         <div className="shead rv">
           <div>
-            <span className="eyebrow">Anywhere in Riyadh</span>
+            <span className="eyebrow">{t('where.eyebrow')}</span>
             <h2>
-              Your space<br />
-              is the <span className="r">studio.</span>
+              {t('where.titleA')}<br />
+              {t('where.titleMid')}<span className="r">{t('where.titleR')}</span>
             </h2>
           </div>
-          <span className="idx">03 — Where we come</span>
+          <span className="idx">{t('where.idx')}</span>
         </div>
         <div className="where-grid">
-          {PLACES.map((p, i) => (
+          {places.map((p, i) => (
             <a
               key={p.tag}
               className={`wc rv${i ? ` d${i}` : ''}`}
-              href={waLink(p.msg)}
+              href={waLink(t(MSGS[i]))}
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
                 loading="lazy"
                 decoding="async"
-                src={p.img}
+                src={IMGS[i]}
                 alt={p.title}
                 onError={(e) => {
                   e.currentTarget.style.display = 'none'
@@ -61,7 +47,7 @@ export default function Where() {
               <h3>{p.title}</h3>
               <p>{p.text}</p>
               <span className="go">
-                Book <Arrow />
+                {t('common.bookCard')} <Arrow />
               </span>
             </a>
           ))}

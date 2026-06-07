@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import { waLink, WA, PHONE, EMAIL, IG_HANDLE, INSTAGRAM } from '../constants'
+import { useLang } from '../i18n'
 import { WaIcon, IgIcon } from '../components/icons'
 import HeroIcon from '../components/HeroIcon'
 import Final from '../components/Final'
-
-const PLANS = ['Trial — first session', '2×20 per week', 'Concierge / bespoke', 'Not sure yet']
-const TIMES = ['Morning', 'Afternoon', 'Evening', 'Flexible']
 
 function MailIcon() {
   return (
@@ -24,19 +22,24 @@ function PhoneIcon() {
 }
 
 export default function Contact() {
-  const [f, setF] = useState({ name: '', phone: '', area: '', plan: PLANS[0], time: TIMES[0], notes: '' })
+  const { t } = useLang()
+  const plans = t('contact.plans')
+  const times = t('contact.times')
+  const [f, setF] = useState({ name: '', phone: '', area: '', plan: '', time: '', notes: '' })
 
   const set = (k) => (e) => setF((s) => ({ ...s, [k]: e.target.value }))
 
   const buildMessage = () => {
+    const plan = f.plan || plans[0]
+    const time = f.time || times[0]
     const lines = [
-      'Hi EMS ElRiyadh! I’d like to book a session.',
-      f.name && `Name: ${f.name}`,
-      f.phone && `Phone: ${f.phone}`,
-      f.area && `Area in Riyadh: ${f.area}`,
-      f.plan && `Plan: ${f.plan}`,
-      f.time && `Preferred time: ${f.time}`,
-      f.notes && `Notes: ${f.notes}`,
+      t('contact.msgIntro'),
+      f.name && `${t('contact.msgName')}: ${f.name}`,
+      f.phone && `${t('contact.msgPhone')}: ${f.phone}`,
+      f.area && `${t('contact.msgArea')}: ${f.area}`,
+      plan && `${t('contact.msgPlan')}: ${plan}`,
+      time && `${t('contact.msgTime')}: ${time}`,
+      f.notes && `${t('contact.msgNotes')}: ${f.notes}`,
     ].filter(Boolean)
     return lines.join('\n')
   }
@@ -52,20 +55,15 @@ export default function Contact() {
       <section className="phead phero">
         <div className="wrap phero-grid">
           <div className="phero-copy">
-            <span className="eyebrow rv">Get in touch</span>
+            <span className="eyebrow rv">{t('contact.heroEyebrow')}</span>
             <h1 className="rv d1">
-              Book your <span className="r">session.</span>
+              {t('contact.heroTitleA')}<span className="r">{t('contact.heroTitleR')}</span>
             </h1>
-            <p className="lede rv d2">
-              Tell us a few details and we’ll open WhatsApp with your message ready
-              to send — or reach us directly. We’ll confirm a time and your location
-              anywhere in Riyadh.
-            </p>
+            <p className="lede rv d2">{t('contact.lede')}</p>
           </div>
 
           <div className="phero-media phero-media-icon">
             <HeroIcon>
-              {/* chat bubble */}
               <path d="M20 4H4a1.6 1.6 0 0 0-1.6 1.6v8.8A1.6 1.6 0 0 0 4 16h3v3.8L11.2 16H20a1.6 1.6 0 0 0 1.6-1.6V5.6A1.6 1.6 0 0 0 20 4z" />
               <path d="M8 10h.01M12 10h.01M16 10h.01" />
             </HeroIcon>
@@ -79,76 +77,73 @@ export default function Contact() {
             <form className="form rv" onSubmit={onSubmit}>
               <div className="field-row">
                 <div className="field">
-                  <label htmlFor="c-name">Your name</label>
-                  <input id="c-name" type="text" autoComplete="name" value={f.name} onChange={set('name')} placeholder="e.g. Sara" />
+                  <label htmlFor="c-name">{t('contact.nameLabel')}</label>
+                  <input id="c-name" type="text" autoComplete="name" value={f.name} onChange={set('name')} placeholder={t('contact.namePlaceholder')} />
                 </div>
                 <div className="field">
-                  <label htmlFor="c-phone">Phone</label>
-                  <input id="c-phone" type="tel" autoComplete="tel" value={f.phone} onChange={set('phone')} placeholder="05X XXX XXXX" />
+                  <label htmlFor="c-phone">{t('contact.phoneLabel')}</label>
+                  <input id="c-phone" type="tel" autoComplete="tel" value={f.phone} onChange={set('phone')} placeholder={t('contact.phonePlaceholder')} />
                 </div>
               </div>
               <div className="field">
-                <label htmlFor="c-area">Area in Riyadh</label>
-                <input id="c-area" type="text" value={f.area} onChange={set('area')} placeholder="Home, hotel or compound — and your area" />
+                <label htmlFor="c-area">{t('contact.areaLabel')}</label>
+                <input id="c-area" type="text" value={f.area} onChange={set('area')} placeholder={t('contact.areaPlaceholder')} />
               </div>
               <div className="field-row">
                 <div className="field">
-                  <label htmlFor="c-plan">Plan</label>
+                  <label htmlFor="c-plan">{t('contact.planLabel')}</label>
                   <select id="c-plan" value={f.plan} onChange={set('plan')}>
-                    {PLANS.map((p) => (
+                    {plans.map((p) => (
                       <option key={p} value={p}>{p}</option>
                     ))}
                   </select>
                 </div>
                 <div className="field">
-                  <label htmlFor="c-time">Preferred time</label>
+                  <label htmlFor="c-time">{t('contact.timeLabel')}</label>
                   <select id="c-time" value={f.time} onChange={set('time')}>
-                    {TIMES.map((t) => (
-                      <option key={t} value={t}>{t}</option>
+                    {times.map((time) => (
+                      <option key={time} value={time}>{time}</option>
                     ))}
                   </select>
                 </div>
               </div>
               <div className="field">
-                <label htmlFor="c-notes">Anything else? (optional)</label>
-                <textarea id="c-notes" value={f.notes} onChange={set('notes')} placeholder="Goals, questions, scheduling notes…" />
+                <label htmlFor="c-notes">{t('contact.notesLabel')}</label>
+                <textarea id="c-notes" value={f.notes} onChange={set('notes')} placeholder={t('contact.notesPlaceholder')} />
               </div>
               <button type="submit" className="btn-lg submit">
                 <WaIcon />
-                Open WhatsApp with my details
+                {t('contact.submit')}
               </button>
-              <p className="hint">
-                No account or payment needed. Submitting opens WhatsApp with your
-                message pre-filled — you choose when to send it.
-              </p>
+              <p className="hint">{t('contact.hint')}</p>
             </form>
 
             <div className="cmethods rv d1">
-              <a className="cm" href={waLink("Hi EMS ElRiyadh, I'd like to book a session.")} target="_blank" rel="noopener noreferrer">
+              <a className="cm" href={waLink(t('msg.session'))} target="_blank" rel="noopener noreferrer">
                 <span className="ic"><WaIcon /></span>
                 <span>
-                  <span className="k">WhatsApp</span>
+                  <span className="k">{t('contact.methods.whatsapp')}</span>
                   <span className="v">{PHONE}</span>
                 </span>
               </a>
               <a className="cm" href={`tel:${PHONE.replace(/\s/g, '')}`}>
                 <span className="ic"><PhoneIcon /></span>
                 <span>
-                  <span className="k">Call</span>
+                  <span className="k">{t('contact.methods.call')}</span>
                   <span className="v">{PHONE}</span>
                 </span>
               </a>
               <a className="cm" href={`mailto:${EMAIL}`}>
                 <span className="ic"><MailIcon /></span>
                 <span>
-                  <span className="k">Email</span>
+                  <span className="k">{t('contact.methods.email')}</span>
                   <span className="v">{EMAIL}</span>
                 </span>
               </a>
               <a className="cm" href={INSTAGRAM} target="_blank" rel="noopener noreferrer">
                 <span className="ic"><IgIcon /></span>
                 <span>
-                  <span className="k">Instagram</span>
+                  <span className="k">{t('contact.methods.instagram')}</span>
                   <span className="v">{IG_HANDLE}</span>
                 </span>
               </a>

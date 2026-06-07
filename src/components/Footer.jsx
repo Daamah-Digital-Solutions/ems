@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import { WA, PHONE } from '../constants'
 import { LINKS, LEGAL } from '../nav'
+import { useLang } from '../i18n'
 import emsIcon from '../ems-icon.svg'
 
 export default function Footer() {
+  const { t } = useLang()
   const half = Math.ceil(LINKS.length / 2)
   const colA = LINKS.slice(0, half)
   const colB = LINKS.slice(half)
@@ -14,29 +16,29 @@ export default function Footer() {
           <img className="brand-mark" src={emsIcon} alt="" style={{ width: 40, height: 40 }} />
           <span className="wm">
             <b>EMS ElRiyadh</b>
-            <span>EMS training · Riyadh, KSA</span>
+            <span>{t('footer.tagline')}</span>
           </span>
         </div>
         <div className="fcol">
-          <span className="h">Explore</span>
+          <span className="h">{t('footer.explore')}</span>
           {colA.map(([to, label]) => (
             <Link key={to} to={to}>
-              {label}
+              {t(label)}
             </Link>
           ))}
         </div>
         <div className="fcol">
-          <span className="h">Discover</span>
+          <span className="h">{t('footer.discover')}</span>
           {colB.map(([to, label]) => (
             <Link key={to} to={to}>
-              {label}
+              {t(label)}
             </Link>
           ))}
         </div>
         <div className="fcol">
-          <span className="h">Book</span>
+          <span className="h">{t('footer.book')}</span>
           <a href={WA} target="_blank" rel="noopener noreferrer">
-            WhatsApp
+            {t('footer.whatsapp')}
           </a>
           <a href={WA} target="_blank" rel="noopener noreferrer">
             {PHONE}
@@ -44,15 +46,15 @@ export default function Footer() {
         </div>
       </div>
       <div className="fend">
-        <span>© {new Date().getFullYear()} EMS ElRiyadh — Premium German fitness system · Not a medical device.</span>
+        <span>© {new Date().getFullYear()} EMS ElRiyadh — {t('footer.rights')}</span>
         <span className="legal">
           {LEGAL.map(([to, label]) => (
             <Link key={to} to={to}>
-              {label}
+              {t(label)}
             </Link>
           ))}
         </span>
-        <span className="partner">Powered by <b>MyoStyle®</b></span>
+        <span className="partner">{t('footer.poweredBy')} <b>MyoStyle®</b></span>
       </div>
     </footer>
   )

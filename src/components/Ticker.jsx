@@ -1,15 +1,9 @@
-const ITEMS = [
-  'The studio comes to you',
-  '2×20 per week',
-  'German-engineered · MyoStyle®',
-  'Anywhere in Riyadh',
-  'Book on WhatsApp',
-]
+import { useLang } from '../i18n'
 
-function Run() {
+function Run({ items }) {
   return (
     <span>
-      {ITEMS.map((t, i) => (
+      {items.map((t, i) => (
         <span key={i} style={{ display: 'inline-flex', gap: '2.4rem', alignItems: 'center' }}>
           {t} <i className="s">✦</i>{' '}
         </span>
@@ -19,11 +13,13 @@ function Run() {
 }
 
 export default function Ticker() {
+  const { t } = useLang()
+  const items = t('ticker.items')
   return (
     <div className="ticker" aria-hidden="true">
       <div className="t">
-        <Run />
-        <Run />
+        <Run items={items} />
+        <Run items={items} />
       </div>
     </div>
   )

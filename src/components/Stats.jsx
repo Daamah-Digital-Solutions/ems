@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { prefersReduced } from '../constants'
+import { useLang } from '../i18n'
 
 function Stat({ to, suffix = '', small, value, k }) {
   const ref = useRef(null)
@@ -47,14 +48,15 @@ function Stat({ to, suffix = '', small, value, k }) {
 }
 
 export default function Stats() {
+  const { t } = useLang()
   return (
     <section className="pad" style={{ paddingBottom: 0 }}>
       <div className="wrap">
         <div className="stats rv">
-          <Stat to={20} small="′" k="Per session" />
-          <Stat to={2} suffix="×" k="Per week" />
-          <Stat value="1:1" k="Personal trainer" />
-          <Stat to={0} small=" commute" k="We come to you" />
+          <Stat to={20} small="′" k={t('stats.perSession')} />
+          <Stat to={2} suffix="×" k={t('stats.perWeek')} />
+          <Stat value="1:1" k={t('stats.personalTrainer')} />
+          <Stat to={0} small={t('stats.commute')} k={t('stats.weComeToYou')} />
         </div>
       </div>
     </section>

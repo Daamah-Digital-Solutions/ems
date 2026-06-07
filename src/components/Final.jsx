@@ -1,26 +1,28 @@
 import { waLink, WA, PHONE } from '../constants'
+import { useLang } from '../i18n'
 import { WaIcon } from './icons'
 
 export default function Final() {
+  const { t } = useLang()
   return (
     <section className="final">
       <img className="bg" loading="lazy" decoding="async" src="/images/cut2.jpg" alt="" aria-hidden="true" />
       <div className="in rv">
         <h2>
-          Ready to <span className="r">begin?</span>
+          {t('final.titleA')}<span className="r">{t('final.titleR')}</span>
         </h2>
-        <p>Two messages, one session, zero commute. Let the studio come to you.</p>
+        <p>{t('final.text')}</p>
         <a
           className="btn-lg"
-          href={waLink("Hi EMS ElRiyadh, I'd like to book a session.")}
+          href={waLink(t('msg.session'))}
           target="_blank"
           rel="noopener noreferrer"
         >
           <WaIcon />
-          Book on WhatsApp
+          {t('common.bookWhatsApp')}
         </a>
         <div className="ph">
-          or message{' '}
+          {t('common.orMessage')}{' '}
           <a href={WA} target="_blank" rel="noopener noreferrer">
             {PHONE}
           </a>

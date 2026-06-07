@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { SITE } from './constants'
-import { getArticle } from './data/articles'
+import { hasArticle } from './data/articles'
+import en from './i18n/en'
 
 const BRAND = 'EMS ElRiyadh'
 const DEFAULT_DESC =
@@ -25,8 +26,8 @@ const ROUTES = {
 function resolve(pathname) {
   if (ROUTES[pathname]) return ROUTES[pathname]
   const m = pathname.match(/^\/articles\/(.+)$/)
-  if (m) {
-    const post = getArticle(m[1])
+  if (m && hasArticle(m[1])) {
+    const post = en.art[m[1]]
     if (post) return { title: `${post.title} · ${BRAND}`, desc: post.excerpt }
   }
   return { title: BRAND, desc: DEFAULT_DESC }

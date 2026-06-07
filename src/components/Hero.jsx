@@ -1,39 +1,38 @@
 import { waLink } from '../constants'
+import { useLang, rich } from '../i18n'
 import { WaIcon } from './icons'
 
 export default function Hero({ loaded }) {
+  const { t } = useLang()
+  const trust = t('hero.trust')
   return (
     <section className={`hero${loaded ? ' go' : ''}`} id="hero">
       <div className="hero-l">
-        <span className="eyebrow">Mobile EMS Studio · Riyadh</span>
+        <span className="eyebrow">{t('hero.eyebrow')}</span>
         <h1>
-          <span className="ln l1"><span>The studio</span></span>
-          <span className="ln l2"><span>comes to</span></span>
-          <span className="ln l3"><span className="r">you.</span></span>
+          <span className="ln l1"><span>{t('hero.line1')}</span></span>
+          <span className="ln l2"><span>{t('hero.line2')}</span></span>
+          <span className="ln l3"><span className="r">{t('hero.line3')}</span></span>
         </h1>
-        <p className="sub">
-          Premium one-on-one EMS training — the suit, the system and your trainer
-          brought to your door. <b>German-engineered with MyoStyle®. 20 minutes,
-          twice a week.</b>
-        </p>
+        <p className="sub">{rich(t('hero.sub'))}</p>
         <div className="hero-cta">
           <a
             className="btn-lg"
-            href={waLink("Hi EMS ElRiyadh, I'd like to book a session.")}
+            href={waLink(t('msg.session'))}
             target="_blank"
             rel="noopener noreferrer"
           >
             <WaIcon />
-            Book on WhatsApp
+            {t('common.bookWhatsApp')}
           </a>
           <a className="ghost" href="#how">
-            See how it works <span className="a">→</span>
+            {t('hero.seeHow')} <span className="a">→</span>
           </a>
         </div>
         <div className="trust">
-          <span className="t"><span className="dot" /> <b>German-engineered</b></span>
-          <span className="t"><span className="dot" /> Powered by <b>MyoStyle®</b></span>
-          <span className="t"><span className="dot" /> Anywhere in <b>Riyadh</b></span>
+          {trust.map((item, i) => (
+            <span className="t" key={i}><span className="dot" /> {rich(item)}</span>
+          ))}
         </div>
       </div>
 
@@ -50,11 +49,11 @@ export default function Hero({ loaded }) {
         </div>
         <div className="fbadge b1">
           <span className="v">20<small style={{ fontSize: '.6em' }}>′</small></span>
-          <span className="k">focused<br />minutes</span>
+          <span className="k">{t('hero.badge1a')}<br />{t('hero.badge1b')}</span>
         </div>
         <div className="fbadge b2 float">
           <span className="v">2×</span>
-          <span className="k">sessions<br />a week</span>
+          <span className="k">{t('hero.badge2a')}<br />{t('hero.badge2b')}</span>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
-import { getArticle } from '../data/articles'
+import { hasArticle, getCover } from '../data/articles'
 import { waLink } from '../constants'
+import { useLang } from '../i18n'
 import { WaIcon } from '../components/icons'
 import CtaStrip from '../components/CtaStrip'
 import NotFound from './NotFound'
@@ -28,10 +29,13 @@ function Block({ block }) {
 
 export default function Article() {
   const { slug } = useParams()
-  const post = getArticle(slug)
+  const { t } = useLang()
 
   // Unknown slug → reuse the 404 page so deep links never dead-end.
-  if (!post) return <NotFound />
+  if (!hasArticle(slug)) return <NotFound />
+
+  const post = t(`art.${slug}`)
+  const cover = getCover(slug)
 
   return (
     <>
@@ -42,7 +46,7 @@ export default function Article() {
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
-              All articles
+              {t('common.allArticles')}
             </Link>
             <span className="eyebrow">{post.tag}</span>
             <h1 className="dsp" style={{ fontSize: 'clamp(2rem,5vw,3.2rem)', margin: '.6rem 0 0' }}>
@@ -65,7 +69,7 @@ export default function Article() {
               }}
             >
               <img
-                src={post.cover}
+                src={cover}
                 alt=""
                 decoding="async"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'var(--img)' }}
@@ -78,22 +82,19 @@ export default function Article() {
             <p style={{ marginTop: '2rem' }}>
               <a
                 className="btn-lg"
-                href={waLink("Hi EMS ElRiyadh, I'd like to book a session.")}
+                href={waLink(t('msg.session'))}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <WaIcon />
-                Book a session
+                {t('common.bookWhatsApp')}
               </a>
             </p>
           </div>
         </div>
       </article>
 
-      <CtaStrip
-        line={<>Ready to <span className="r">begin?</span></>}
-        message="Hi EMS ElRiyadh, I'd like to book a session."
-      />
+      <CtaStrip lineKey="cta.defaultLine" msgKey="msg.session" />
     </>
   )
 }

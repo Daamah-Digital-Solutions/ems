@@ -1,110 +1,73 @@
 import { waLink } from '../constants'
+import { useLang } from '../i18n'
 import { Arrow, WaIcon } from '../components/icons'
 import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
 
-// Coverage = ALL of Riyadh (home / hotel / compound). No specific districts,
-// no published opening hours — scheduling is flexible.
-const PLACES = [
-  {
-    tag: 'Home',
-    title: 'At Home',
-    text: "Living room, terrace or garden — wherever you're most at ease.",
-    // Interior-only placeholder (no people). TODO: replace with real brand photo.
-    img: 'https://images.unsplash.com/photo-1586439496903-c96e9f18f212?q=80&w=1100&auto=format&fit=crop',
-    msg: "Hi EMS ElRiyadh, I'd like a session at home.",
-  },
-  {
-    tag: 'Hotel',
-    title: 'In Your Hotel',
-    text: 'Travelling through Riyadh? Keep your rhythm without finding a gym.',
-    img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1100&auto=format&fit=crop',
-    msg: "Hi EMS ElRiyadh, I'd like a session at my hotel.",
-  },
-  {
-    tag: 'Compound',
-    title: 'On Your Compound',
-    text: 'Private, discreet sessions inside your community, on your schedule.',
-    img: 'https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=1100&auto=format&fit=crop',
-    msg: "Hi EMS ElRiyadh, I'd like a session on my compound.",
-  },
+const PLACE_IMGS = [
+  'https://images.unsplash.com/photo-1586439496903-c96e9f18f212?q=80&w=1100&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1100&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=1100&auto=format&fit=crop',
 ]
+const PLACE_MSGS = ['msg.atHome', 'msg.atHotel', 'msg.atCompound']
 
-const COVERAGE = [
-  {
-    title: 'Anywhere in Riyadh',
-    text: 'Wherever you are in the city, the studio comes to you. No districts to check — if you’re in Riyadh, we cover it.',
-    icon: (
-      <>
-        <path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z" />
-        <circle cx="12" cy="10" r="2.5" />
-      </>
-    ),
-  },
-  {
-    title: 'We bring everything',
-    text: 'The MyoStyle® system, the impulse suit and your trainer arrive ready. A few square metres of floor is all it takes.',
-    icon: (
-      <>
-        <path d="M3 11l9-8 9 8" />
-        <path d="M5 9v11h14V9" />
-        <path d="M9 20v-6h6v6" />
-      </>
-    ),
-  },
-  {
-    title: 'Flexible scheduling',
-    text: 'Pick a time that suits you and we’ll confirm it over WhatsApp. We work around your week, day or evening.',
-    icon: (
-      <>
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 7v5l3 2" />
-      </>
-    ),
-  },
-  {
-    title: 'Private & discreet',
-    text: 'One-on-one, in your own space. Calm, focused and completely yours — no crowds and no audience.',
-    icon: (
-      <>
-        <path d="M12 3l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V6z" />
-        <path d="M9.5 12l1.8 1.8L15 10" />
-      </>
-    ),
-  },
+const COVERAGE_ICONS = [
+  (
+    <>
+      <path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </>
+  ),
+  (
+    <>
+      <path d="M3 11l9-8 9 8" />
+      <path d="M5 9v11h14V9" />
+      <path d="M9 20v-6h6v6" />
+    </>
+  ),
+  (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </>
+  ),
+  (
+    <>
+      <path d="M12 3l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V6z" />
+      <path d="M9.5 12l1.8 1.8L15 10" />
+    </>
+  ),
 ]
 
 export default function Locations() {
+  const { t } = useLang()
+  const places = t('locations.places')
+  const coverage = t('locations.coverage')
   return (
     <>
       <section className="phead phero">
         <div className="wrap phero-grid">
           <div className="phero-copy">
-            <span className="eyebrow rv">Coverage</span>
+            <span className="eyebrow rv">{t('locations.heroEyebrow')}</span>
             <h1 className="rv d1">
-              All of <span className="r">Riyadh.</span>
+              {t('locations.heroTitleA')}<span className="r">{t('locations.heroTitleR')}</span>
             </h1>
-            <p className="lede rv d2">
-              Home, hotel or compound — wherever you are in Riyadh, we bring the
-              session to you. There are no fixed districts and no rigid hours: just
-              flexible scheduling and a trainer at your door.
-            </p>
+            <p className="lede rv d2">{t('locations.lede')}</p>
             <div className="phead-cta rv d3">
               <a
                 className="btn-lg"
-                href={waLink("Hi EMS ElRiyadh, I'd like to check coverage for my area in Riyadh.")}
+                href={waLink(t('msg.coverage'))}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <WaIcon />
-                Check my area
+                {t('locations.checkArea')}
               </a>
             </div>
           </div>
 
           <div className="phero-media phero-media-icon">
             <HeroIcon>
-              {/* map pin */}
               <path d="M12 21s-6.5-5-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 16 12 21 12 21z" />
               <circle cx="12" cy="10.5" r="2.4" />
             </HeroIcon>
@@ -116,27 +79,27 @@ export default function Locations() {
         <div className="wrap">
           <div className="shead rv">
             <div>
-              <span className="eyebrow">Where we come</span>
+              <span className="eyebrow">{t('locations.whereEyebrow')}</span>
               <h2>
-                Your space is the <span className="r">studio.</span>
+                {t('locations.whereTitleA')}<span className="r">{t('locations.whereTitleR')}</span>
               </h2>
             </div>
-            <span className="idx">01 — Where</span>
+            <span className="idx">{t('locations.idx')}</span>
           </div>
         </div>
         <div className="band">
-          {PLACES.map((p, i) => (
+          {places.map((p, i) => (
             <a
               key={p.tag}
               className={`wc rv${i ? ` d${i}` : ''}`}
-              href={waLink(p.msg)}
+              href={waLink(t(PLACE_MSGS[i]))}
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
                 loading="lazy"
                 decoding="async"
-                src={p.img}
+                src={PLACE_IMGS[i]}
                 alt={p.title}
                 onError={(e) => {
                   e.currentTarget.style.display = 'none'
@@ -146,7 +109,7 @@ export default function Locations() {
               <h3>{p.title}</h3>
               <p>{p.text}</p>
               <span className="go">
-                Book <Arrow />
+                {t('common.bookCard')} <Arrow />
               </span>
             </a>
           ))}
@@ -157,18 +120,18 @@ export default function Locations() {
         <div className="wrap">
           <div className="shead rv">
             <div>
-              <span className="eyebrow">How coverage works</span>
+              <span className="eyebrow">{t('locations.coverageEyebrow')}</span>
               <h2>
-                Simple, <span className="r">city-wide.</span>
+                {t('locations.coverageTitleA')}<span className="r">{t('locations.coverageTitleR')}</span>
               </h2>
             </div>
-            <span className="idx">02 — Coverage</span>
+            <span className="idx">{t('locations.idx2')}</span>
           </div>
           <div className="benefits">
-            {COVERAGE.map((v, i) => (
+            {coverage.map((v, i) => (
               <div className={`bcard rv${i ? ` d${i}` : ''}`} key={v.title}>
                 <div className="ic">
-                  <svg viewBox="0 0 24 24">{v.icon}</svg>
+                  <svg viewBox="0 0 24 24">{COVERAGE_ICONS[i]}</svg>
                 </div>
                 <h3>{v.title}</h3>
                 <p>{v.text}</p>
@@ -183,21 +146,14 @@ export default function Locations() {
               </svg>
             </div>
             <div>
-              <h3>Scheduling</h3>
-              <p>
-                We keep things flexible across Riyadh rather than fixing set
-                hours — tell us a time that suits you, day or evening, and
-                we&apos;ll confirm it over WhatsApp.
-              </p>
+              <h3>{t('locations.schedulingTitle')}</h3>
+              <p>{t('locations.schedulingText')}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <CtaStrip
-        line={<>We come to <span className="r">you.</span></>}
-        message="Hi EMS ElRiyadh, I'd like to check coverage for my area in Riyadh."
-      />
+      <CtaStrip lineKey="locations.ctaLine" msgKey="msg.coverage" />
     </>
   )
 }

@@ -1,9 +1,11 @@
 import { IG_HANDLE, INSTAGRAM } from '../constants'
+import { useLang } from '../i18n'
 import { IgIcon } from './icons'
 
 const POSTS = ['/images/soc1.jpg', '/images/soc2.jpg', '/images/soc3.jpg']
 
 export default function Feed() {
+  const { t } = useLang()
   return (
     <section id="feed" className="social pad">
       <div className="wrap">
@@ -11,12 +13,12 @@ export default function Feed() {
           <div>
             <span className="eyebrow">{IG_HANDLE}</span>
             <h2>
-              Straight from<br />
-              our <span className="r">feed.</span>
+              {t('feed.titleA')}<br />
+              {t('feed.titleMid')}<span className="r">{t('feed.titleR')}</span>
             </h2>
           </div>
           <a className="ghost" href={INSTAGRAM} target="_blank" rel="noopener noreferrer">
-            Follow &amp; book <span className="a">→</span>
+            {t('common.follow')} <span className="a">→</span>
           </a>
         </div>
         <div className="sgrid">
