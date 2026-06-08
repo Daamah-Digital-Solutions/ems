@@ -539,6 +539,8 @@ footer{background:var(--panel-2);border-top:1px solid var(--line-2);padding:clam
   font-size:.7rem;color:var(--faint)}
 .fend .partner{display:flex;align-items:center;gap:.4rem}.fend .partner b{color:var(--soft)}
 .fend .legal{display:flex;gap:1.1rem}.fend .legal a{color:var(--faint);transition:color .3s}.fend .legal a:hover{color:var(--red)}
+/* subtle agency credit — understated, brand-red on hover */
+.fend .credit a{color:var(--soft);font-weight:600;transition:color .3s}.fend .credit a:hover{color:var(--red)}
 
 .mbook{position:fixed;left:0;right:0;bottom:0;z-index:580;display:none;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));
   background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--line-2)}

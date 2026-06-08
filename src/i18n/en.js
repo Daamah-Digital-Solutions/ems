@@ -41,6 +41,8 @@ const en = {
     rights: 'Premium German fitness system · Not a medical device.',
     poweredBy: 'Powered by',
     payments: 'Accepted payment methods',
+    developedBy: 'Developed by',
+    agency: 'Daamah',
   },
 
   nav: {

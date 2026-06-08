@@ -67,6 +67,12 @@ export default function Footer() {
           ))}
         </span>
         <span className="partner">{t('footer.poweredBy')} <b>MyoStyle®</b></span>
+        <span className="credit">
+          {t('footer.developedBy')}{' '}
+          <a href="https://daamah.net" target="_blank" rel="noopener noreferrer">
+            {t('footer.agency')}
+          </a>
+        </span>
       </div>
     </footer>
   )
