@@ -48,11 +48,13 @@ export default function Footer() {
       <div className="fpay">
         <span className="fpay-label">{t('footer.payments')}</span>
         <div className="fpay-logos">
-          {/* Trust signal only — booking is via WhatsApp, no on-site checkout. */}
-          <span className="pay-chip">
+          {/* Trust signal only — booking is via WhatsApp, no on-site checkout.
+              Per-logo sizing so the two wordmarks share the same optical height
+              (Tabby's SVG includes its pill's padding, so it renders taller). */}
+          <span className="pay-chip pay-tabby">
             <img src="/images/tabby.svg" alt="Tabby" loading="lazy" decoding="async" />
           </span>
-          <span className="pay-chip">
+          <span className="pay-chip pay-tamara">
             <img src="/images/tamara-text-logo-black-en.svg" alt="Tamara" loading="lazy" decoding="async" />
           </span>
         </div>
