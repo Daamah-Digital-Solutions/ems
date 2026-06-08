@@ -536,10 +536,16 @@ footer{background:var(--panel-2);border-top:1px solid var(--line-2);padding:clam
    optically (Tabby's SVG bakes in the pill padding, so its img renders taller). */
 .pay-chip{display:inline-flex;align-items:center;justify-content:center;height:32px;border-radius:8px}
 .pay-chip img{width:auto;display:block}
+/* white chip keeps bare/dark logos legible on the dark footer; border so it
+   also reads on the light footer */
+.pay-light{background:#fff;box-shadow:0 0 0 1px var(--line);padding:0 .6rem}
+/* Tabby: self-contained green pill (legible both themes) — fills the height */
 .pay-tabby{background:transparent;padding:0}
 .pay-tabby img{height:32px}
-.pay-tamara{background:#fff;box-shadow:0 0 0 1px var(--line);padding:0 .6rem}
+/* per-logo heights so every mark reads at the same optical size */
 .pay-tamara img{height:16px}
+.pay-visa img{height:15px}
+.pay-mastercard img{height:22px}
 .fend{max-width:1280px;margin:1.6rem auto 0;padding-top:1.5rem;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
   font-size:.7rem;color:var(--faint)}
 .fend .partner{display:flex;align-items:center;gap:.4rem}.fend .partner b{color:var(--soft)}
