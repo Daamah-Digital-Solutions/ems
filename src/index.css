@@ -525,7 +525,17 @@ footer{background:var(--panel-2);border-top:1px solid var(--line-2);padding:clam
 .fcol{display:flex;flex-direction:column;gap:.6rem;font-size:.84rem;font-weight:500}
 .fcol .h{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:.3rem;font-weight:700}
 .fcol a{color:var(--soft);transition:color .3s}.fcol a:hover{color:var(--red)}
-.fend{max-width:1280px;margin:2.6rem auto 0;padding-top:1.5rem;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+/* accepted payment methods — trust signal only (no on-site checkout) */
+.fpay{max-width:1280px;margin:2.4rem auto 0;padding-top:1.5rem;border-top:1px solid var(--line-2);
+  display:flex;align-items:center;gap:.6rem 1.1rem;flex-wrap:wrap}
+.fpay-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:700}
+.fpay-logos{display:inline-flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+/* white chip keeps both logos (incl. the black Tamara wordmark) legible on the
+   dark footer; subtle border so the white chip reads on the light footer too */
+.pay-chip{display:inline-flex;align-items:center;justify-content:center;height:30px;padding:.3rem .55rem;
+  background:#fff;border-radius:8px;box-shadow:0 0 0 1px var(--line)}
+.pay-chip img{height:17px;width:auto;display:block}
+.fend{max-width:1280px;margin:1.6rem auto 0;padding-top:1.5rem;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
   font-size:.7rem;color:var(--faint)}
 .fend .partner{display:flex;align-items:center;gap:.4rem}.fend .partner b{color:var(--soft)}
 .fend .legal{display:flex;gap:1.1rem}.fend .legal a{color:var(--faint);transition:color .3s}.fend .legal a:hover{color:var(--red)}

@@ -40,6 +40,7 @@ const en = {
     whatsapp: 'WhatsApp',
     rights: 'Premium German fitness system · Not a medical device.',
     poweredBy: 'Powered by',
+    payments: 'Accepted payment methods',
   },
 
   nav: {

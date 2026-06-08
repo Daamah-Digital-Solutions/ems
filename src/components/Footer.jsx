@@ -45,6 +45,18 @@ export default function Footer() {
           </a>
         </div>
       </div>
+      <div className="fpay">
+        <span className="fpay-label">{t('footer.payments')}</span>
+        <div className="fpay-logos">
+          {/* Trust signal only — booking is via WhatsApp, no on-site checkout. */}
+          <span className="pay-chip">
+            <img src="/images/tabby.svg" alt="Tabby" loading="lazy" decoding="async" />
+          </span>
+          <span className="pay-chip">
+            <img src="/images/tamara-text-logo-black-en.svg" alt="Tamara" loading="lazy" decoding="async" />
+          </span>
+        </div>
+      </div>
       <div className="fend">
         <span>© {new Date().getFullYear()} EMS ElRiyadh — {t('footer.rights')}</span>
         <span className="legal">
