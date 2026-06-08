@@ -5,13 +5,14 @@ import { useTheme } from '../hooks/useTheme'
 import { useLang } from '../i18n'
 import { waLink } from '../constants'
 import { LINKS } from '../nav'
-import { WaIcon, GlobeIcon } from './icons'
+import { WaIcon } from './icons'
+import LangSwitch from './LangSwitch'
 import emsIcon from '../ems-icon.svg'
 
 export default function Nav() {
   const scrolled = useNavScrolled(30)
   const { toggle } = useTheme()
-  const { t, lang, setLang, toggle: toggleLang } = useLang()
+  const { t } = useLang()
   const { pathname } = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -59,14 +60,7 @@ export default function Nav() {
         </nav>
 
         <div className="nav-r">
-          <button
-            className="lang"
-            onClick={toggleLang}
-            aria-label={lang === 'en' ? t('nav.switchToArabic') : t('nav.switchToEnglish')}
-          >
-            <GlobeIcon />
-            <span className="lc">{lang === 'en' ? 'ع' : 'EN'}</span>
-          </button>
+          <LangSwitch variant="desktop" />
           <button className="tg" onClick={toggle} aria-label={t('nav.toggleTheme')}>
             <span className="k" aria-hidden="true" />
           </button>
@@ -110,24 +104,8 @@ export default function Nav() {
           ))}
         </nav>
         <div className="m-lang-wrap">
-          <label className="m-lang-h" htmlFor="m-lang-select">
-            <GlobeIcon />
-            {t('nav.language')}
-          </label>
-          <div className="m-lang-select">
-            <select
-              id="m-lang-select"
-              value={lang}
-              onChange={(e) => setLang(e.target.value)}
-              aria-label={t('nav.language')}
-            >
-              <option value="en">🇬🇧 English</option>
-              <option value="ar">🇸🇦 العربية</option>
-            </select>
-            <svg className="chev" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </div>
+          <span className="m-lang-h">{t('nav.language')}</span>
+          <LangSwitch variant="mobile" onSelect={() => setMenuOpen(false)} />
         </div>
         <a
           className="btn-lg"

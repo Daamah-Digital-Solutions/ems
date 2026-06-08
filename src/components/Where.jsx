@@ -3,7 +3,7 @@ import { useLang } from '../i18n'
 import { Arrow } from './icons'
 
 const IMGS = [
-  'https://images.unsplash.com/photo-1586439496903-c96e9f18f212?q=80&w=1100&auto=format&fit=crop',
+  '/images/inhome.jpg',
   'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1100&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?q=80&w=1100&auto=format&fit=crop',
 ]

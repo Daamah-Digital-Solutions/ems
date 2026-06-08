@@ -103,31 +103,50 @@ header.nav.scrolled{background:color-mix(in srgb,var(--bg) 86%,transparent);back
 .m-links{display:flex;flex-direction:column}
 .m-links a{padding:.95rem .2rem;font-family:"Sora";font-weight:700;font-size:1.15rem;color:var(--ink);border-bottom:1px solid var(--line-2);transition:color .25s}
 .m-links a:hover,.m-links a.active{color:var(--red)}
-/* language switch inside the mobile menu — flag dropdown */
-.m-lang-h{display:flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:.7rem}
-.m-lang-h svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.m-lang-select{position:relative}
-.m-lang-select select{appearance:none;-webkit-appearance:none;width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid var(--line);
-  background:var(--panel);color:var(--ink);font:inherit;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-weight:600;font-size:1rem;
-  cursor:pointer;transition:border-color .25s,box-shadow .25s}
-html[lang="ar"] .m-lang-select select{font-family:"IBM Plex Sans Arabic",system-ui,sans-serif}
-.m-lang-select select:hover{border-color:var(--red)}
-.m-lang-select select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px color-mix(in srgb,var(--red) 18%,transparent)}
-.m-lang-select .chev{position:absolute;top:50%;right:.9rem;transform:translateY(-50%);width:18px;height:18px;pointer-events:none;
-  fill:none;stroke:var(--soft);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-html[dir="rtl"] .m-lang-select .chev{right:auto;left:.9rem}
+/* language-switch label inside the mobile menu */
+.m-lang-h{display:block;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:.7rem}
 .m-menu .btn-lg{justify-content:center;margin-top:auto}
 .nav-r{display:flex;align-items:center;gap:.9rem}
-/* language toggle (globe + EN / ع) — globe marks it as a language switch */
-.lang{display:inline-flex;align-items:center;gap:.34rem;height:28px;padding:0 .6rem;border-radius:30px;border:1px solid var(--line);background:var(--panel);color:var(--soft);
-  font-family:"Sora",sans-serif;font-weight:700;font-size:.8rem;line-height:1;cursor:pointer;flex:none;transition:border-color .3s,color .3s}
-.lang svg{width:15px;height:15px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.lang .lc{min-width:1.2ch;text-align:center}
-.lang:hover{border-color:var(--red);color:var(--ink)}
-.lang:focus-visible{outline:2px solid var(--red);outline-offset:3px}
-/* on mobile/tablet (burger shown) the top bar stays clean — the language
-   switch moves into the side menu as a flag dropdown */
-@media(max-width:960px){.lang{display:none}.nav-r{gap:.6rem}}
+
+/* ---- Language switch (LangSwitch.jsx): SVG-flag dropdown, one-tap ----
+   Desktop = compact pill in the nav; Mobile = full-width row in the side menu.
+   Selecting an option applies immediately and closes (no confirm step). */
+.langsw{position:relative;flex:none}
+/* fixed height, auto width keeps each flag's true aspect ratio (no squashing) */
+.langsw .flag{height:14px;width:auto;border-radius:2px;display:block;box-shadow:0 0 0 1px var(--line)}
+.langsw-trigger{display:inline-flex;align-items:center;gap:.45rem;cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--ink);transition:border-color .25s}
+.langsw-trigger:hover{border-color:var(--red)}
+.langsw-trigger:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.langsw-trigger .ln{font-family:"Sora",sans-serif;font-weight:700;line-height:1}
+html[lang="ar"] .langsw-trigger .ln{font-family:"IBM Plex Sans Arabic",system-ui,sans-serif}
+.langsw-trigger .chev{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.65;transition:transform .25s}
+.langsw.open .langsw-trigger .chev{transform:rotate(180deg)}
+.langsw-menu{list-style:none;margin:0;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;z-index:650}
+.langsw.open .langsw-menu{opacity:1;visibility:visible;transform:none}
+.langsw-menu button{display:flex;align-items:center;gap:.6rem;width:100%;border:0;background:none;cursor:pointer;color:var(--ink);
+  font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-weight:600;transition:background .2s,color .2s}
+html[lang="ar"] .langsw-menu button{font-family:"IBM Plex Sans Arabic",system-ui,sans-serif}
+.langsw-menu button:hover{background:color-mix(in srgb,var(--red) 10%,transparent)}
+.langsw-menu button.on{color:var(--red)}
+.langsw-menu .ln{flex:1;text-align:start}
+.langsw-menu .tick{width:16px;height:16px;flex:none;fill:none;stroke:var(--red);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* desktop variant — pill trigger + floating menu */
+.langsw-desktop .langsw-trigger{height:30px;padding:0 .55rem 0 .65rem;border-radius:30px;font-size:.8rem}
+.langsw-desktop .langsw-menu{position:absolute;top:calc(100% + .5rem);right:0;min-width:170px;padding:.35rem;border:1px solid var(--line);
+  border-radius:14px;background:var(--panel);box-shadow:var(--shadow);transform:translateY(-6px)}
+html[dir="rtl"] .langsw-desktop .langsw-menu{right:auto;left:0}
+.langsw-desktop .langsw-menu button{padding:.6rem .7rem;border-radius:10px;font-size:.92rem}
+@media(max-width:960px){.langsw-desktop{display:none}.nav-r{gap:.6rem}}
+
+/* mobile variant — full-width row inside the side menu */
+.langsw-mobile{width:100%}
+.langsw-mobile .langsw-trigger{width:100%;padding:.85rem 1rem;border-radius:12px}
+.langsw-mobile .langsw-trigger .ln{flex:1;text-align:start;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-weight:600;font-size:1rem}
+html[lang="ar"] .langsw-mobile .langsw-trigger .ln{font-family:"IBM Plex Sans Arabic",system-ui,sans-serif}
+.langsw-mobile .langsw-menu{position:absolute;top:calc(100% + .4rem);left:0;right:0;padding:.35rem;border:1px solid var(--line);
+  border-radius:12px;background:var(--panel);box-shadow:var(--shadow);transform:translateY(-6px)}
+.langsw-mobile .langsw-menu button{padding:.75rem .8rem;border-radius:10px;font-size:1rem}
 .tg{width:54px;height:28px;border-radius:30px;border:1px solid var(--line);background:var(--panel);position:relative;cursor:pointer;flex:none;transition:border-color .3s}
 .tg:hover{border-color:var(--red)}.tg:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .tg .k{position:absolute;top:50%;left:3px;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;
