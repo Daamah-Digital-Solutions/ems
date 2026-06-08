@@ -544,7 +544,7 @@ footer{background:var(--panel-2);border-top:1px solid var(--line-2);padding:clam
 .pay-tabby img{height:32px}
 /* per-logo heights so every mark reads at the same optical size */
 .pay-tamara img{height:16px}
-.pay-visa img{height:15px}
+.pay-visa img{height:14px}
 .pay-mastercard img{height:22px}
 .fend{max-width:1280px;margin:1.6rem auto 0;padding-top:1.5rem;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
   font-size:.7rem;color:var(--faint)}

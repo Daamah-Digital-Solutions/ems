@@ -58,10 +58,10 @@ export default function Footer() {
             <img src="/images/tamara-text-logo-black-en.svg" alt="Tamara" loading="lazy" decoding="async" />
           </span>
           <span className="pay-chip pay-light pay-visa">
-            <img src="/images/visa.svg" alt="Visa" loading="lazy" decoding="async" />
+            <img src="/images/visa-logo.png" alt="Visa" loading="lazy" decoding="async" />
           </span>
           <span className="pay-chip pay-light pay-mastercard">
-            <img src="/images/mastercard.svg" alt="Mastercard" loading="lazy" decoding="async" />
+            <img src="/images/master-card_symbol-is.svg" alt="Mastercard" loading="lazy" decoding="async" />
           </span>
         </div>
       </div>
