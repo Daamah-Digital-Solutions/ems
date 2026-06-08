@@ -1,5 +1,5 @@
 import { waLink } from '../constants'
-import { useLang, rich } from '../i18n'
+import { useLang } from '../i18n'
 import { Arrow, WaIcon } from '../components/icons'
 import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
@@ -52,7 +52,7 @@ export default function Locations() {
             <h1 className="rv d1">
               {t('locations.heroTitleA')}<span className="r">{t('locations.heroTitleR')}</span>
             </h1>
-            <p className="lede rv d2">{rich(t('locations.lede'))}</p>
+            <p className="lede rv d2">{t('locations.lede')}</p>
             <div className="phead-cta rv d3">
               <a
                 className="btn-lg"
@@ -133,8 +133,8 @@ export default function Locations() {
                 <div className="ic">
                   <svg viewBox="0 0 24 24">{COVERAGE_ICONS[i]}</svg>
                 </div>
-                <h3>{rich(v.title)}</h3>
-                <p>{rich(v.text)}</p>
+                <h3>{v.title}</h3>
+                <p>{v.text}</p>
               </div>
             ))}
           </div>
@@ -147,7 +147,7 @@ export default function Locations() {
             </div>
             <div>
               <h3>{t('locations.schedulingTitle')}</h3>
-              <p>{rich(t('locations.schedulingText'))}</p>
+              <p>{t('locations.schedulingText')}</p>
             </div>
           </div>
         </div>

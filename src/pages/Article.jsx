@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { hasArticle, getCover } from '../data/articles'
 import { waLink } from '../constants'
-import { useLang, rich } from '../i18n'
+import { useLang } from '../i18n'
 import { WaIcon } from '../components/icons'
 import CtaStrip from '../components/CtaStrip'
 import NotFound from './NotFound'
@@ -9,21 +9,21 @@ import NotFound from './NotFound'
 function Block({ block }) {
   switch (block.type) {
     case 'lead':
-      return <p className="lead">{rich(block.text)}</p>
+      return <p className="lead">{block.text}</p>
     case 'h2':
-      return <h2>{rich(block.text)}</h2>
+      return <h2>{block.text}</h2>
     case 'h3':
-      return <h3>{rich(block.text)}</h3>
+      return <h3>{block.text}</h3>
     case 'ul':
       return (
         <ul>
           {block.items.map((it) => (
-            <li key={it}>{rich(it)}</li>
+            <li key={it}>{it}</li>
           ))}
         </ul>
       )
     default:
-      return <p>{rich(block.text)}</p>
+      return <p>{block.text}</p>
   }
 }
 
@@ -48,12 +48,12 @@ export default function Article() {
               </svg>
               {t('common.allArticles')}
             </Link>
-            <span className="eyebrow">{rich(post.tag)}</span>
+            <span className="eyebrow">{post.tag}</span>
             <h1 className="dsp" style={{ fontSize: 'clamp(2rem,5vw,3.2rem)', margin: '.6rem 0 0' }}>
-              {rich(post.title)}
+              {post.title}
             </h1>
             <p className="docmeta" style={{ marginTop: '.9rem' }}>
-              <bdi>{post.read}</bdi>
+              {post.read}
               {/* TODO: add a real publish date when posts are finalised */}
             </p>
           </div>

@@ -44,7 +44,7 @@ export default function HowItWorks() {
             <h1 className="rv d1">
               {t('hiw.heroTitleA')}<span className="r">{t('hiw.heroTitleR')}</span>
             </h1>
-            <p className="lede rv d2">{rich(t('hiw.lede'))}</p>
+            <p className="lede rv d2">{t('hiw.lede')}</p>
             <div className="phead-cta rv d3">
               <a
                 className="btn-lg"
@@ -80,15 +80,15 @@ export default function HowItWorks() {
             </div>
             <span className="idx">{t('hiw.idx')}</span>
           </div>
-          <p className="lead-p rv">{rich(t('hiw.leadP'))}</p>
+          <p className="lead-p rv">{t('hiw.leadP')}</p>
           <div className="benefits">
             {principle.map((p, i) => (
               <div className={`bcard rv${i ? ` d${i}` : ''}`} key={p.title}>
                 <div className="ic">
                   <svg viewBox="0 0 24 24">{PRINCIPLE_ICONS[i]}</svg>
                 </div>
-                <h3>{rich(p.title)}</h3>
-                <p>{rich(p.text)}</p>
+                <h3>{p.title}</h3>
+                <p>{p.text}</p>
               </div>
             ))}
           </div>
@@ -106,7 +106,7 @@ export default function HowItWorks() {
               <h2>
                 {t('hiw.whoTitleA')}<span className="r">{t('hiw.whoTitleR')}</span>
               </h2>
-              <p>{rich(t('hiw.whoP'))}</p>
+              <p>{t('hiw.whoP')}</p>
               <ul className="checklist">
                 {forItems.map((item, i) => (
                   <li key={i}>
@@ -138,8 +138,8 @@ export default function HowItWorks() {
                   <span className="no">{i + 1}</span>
                   <img src={STEP_IMGS[i]} alt={s.alt} loading="lazy" decoding="async" />
                 </div>
-                <h3>{rich(s.title)}</h3>
-                <p>{rich(s.text)}</p>
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
               </div>
             ))}
           </div>
@@ -154,7 +154,7 @@ export default function HowItWorks() {
             </div>
             <div>
               <h3>{t('hiw.readinessTitle')}</h3>
-              <p>{rich(t('hiw.readinessText'))}</p>
+              <p>{t('hiw.readinessText')}</p>
             </div>
           </div>
         </div>

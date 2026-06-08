@@ -1,4 +1,4 @@
-import { useLang, rich } from '../i18n'
+import { useLang } from '../i18n'
 
 // Shared layout for legal documents (Privacy, Terms). Content is passed as a
 // section array so the copy stays editable in one place per page.
@@ -18,12 +18,12 @@ export default function LegalDoc({ title, accent, updated, intro, sections }) {
             <section key={i}>
               <h2>{s.h}</h2>
               {s.body.map((b, j) => {
-                if (typeof b === 'string') return <p key={j}>{rich(b)}</p>
+                if (typeof b === 'string') return <p key={j}>{b}</p>
                 if (b.ul) {
                   return (
                     <ul key={j}>
                       {b.ul.map((li) => (
-                        <li key={li}>{rich(li)}</li>
+                        <li key={li}>{li}</li>
                       ))}
                     </ul>
                   )

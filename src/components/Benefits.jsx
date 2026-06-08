@@ -1,4 +1,4 @@
-import { useLang, rich } from '../i18n'
+import { useLang } from '../i18n'
 
 // Icons stay in the component (markup, not copy); text comes from the locale.
 const ICONS = [
@@ -47,8 +47,8 @@ export default function Benefits() {
               <div className="ic">
                 <svg viewBox="0 0 24 24">{ICONS[i]}</svg>
               </div>
-              <h3>{rich(it.title)}</h3>
-              <p>{rich(it.text)}</p>
+              <h3>{it.title}</h3>
+              <p>{it.text}</p>
             </div>
           ))}
         </div>

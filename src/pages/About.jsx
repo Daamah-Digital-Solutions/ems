@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { waLink } from '../constants'
-import { useLang, rich } from '../i18n'
+import { useLang } from '../i18n'
 import { WaIcon } from '../components/icons'
 import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
@@ -45,7 +45,7 @@ export default function About() {
             <h1 className="rv d1">
               {t('about.heroTitleA')}<span className="r">{t('about.heroTitleR')}</span>
             </h1>
-            <p className="lede rv d2">{rich(t('about.lede'))}</p>
+            <p className="lede rv d2">{t('about.lede')}</p>
             <div className="phead-cta rv d3">
               <a
                 className="btn-lg"
@@ -84,15 +84,15 @@ export default function About() {
             </div>
             <span className="idx">{t('about.idx')}</span>
           </div>
-          <p className="lead-p rv">{rich(t('about.leadP'))}</p>
+          <p className="lead-p rv">{t('about.leadP')}</p>
           <div className="benefits">
             {values.map((v, i) => (
               <div className={`bcard rv${i ? ` d${i}` : ''}`} key={v.title}>
                 <div className="ic">
                   <svg viewBox="0 0 24 24">{ICONS[i]}</svg>
                 </div>
-                <h3>{rich(v.title)}</h3>
-                <p>{rich(v.text)}</p>
+                <h3>{v.title}</h3>
+                <p>{v.text}</p>
               </div>
             ))}
           </div>
@@ -113,10 +113,10 @@ export default function About() {
             <div className="prose rv d1">
               <span className="eyebrow">{t('about.partnerEyebrow')}</span>
               <h2>
-                {t('about.partnerTitleA')}<span className="r">{rich(t('about.partnerTitleR'))}</span>
+                {t('about.partnerTitleA')}<span className="r">{t('about.partnerTitleR')}</span>
               </h2>
-              <p>{rich(t('about.partnerP1'))}</p>
-              <p>{rich(t('about.partnerP2'))}</p>
+              <p>{t('about.partnerP1')}</p>
+              <p>{t('about.partnerP2')}</p>
             </div>
           </div>
         </div>

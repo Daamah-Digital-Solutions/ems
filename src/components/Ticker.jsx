@@ -1,11 +1,11 @@
-import { useLang, rich } from '../i18n'
+import { useLang } from '../i18n'
 
 function Run({ items }) {
   return (
     <span>
-      {items.map((it, i) => (
+      {items.map((t, i) => (
         <span key={i} style={{ display: 'inline-flex', gap: '2.4rem', alignItems: 'center' }}>
-          {rich(it)} <i className="s">✦</i>{' '}
+          {t} <i className="s">✦</i>{' '}
         </span>
       ))}
     </span>
