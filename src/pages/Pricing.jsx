@@ -1,5 +1,5 @@
 import { waLink } from '../constants'
-import { useLang } from '../i18n'
+import { useLang, rich } from '../i18n'
 import { Check, WaIcon } from '../components/icons'
 import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
@@ -67,16 +67,16 @@ export default function Pricing() {
                   <span className="pn">{p.name}</span>
                   <div className="pt">
                     {p.titleR ? (
-                      <>{p.titleA}<span className="r">{p.titleR}</span></>
+                      <>{rich(p.titleA)}<span className="r">{rich(p.titleR)}</span></>
                     ) : (
-                      p.title
+                      rich(p.title)
                     )}
                   </div>
                   <ul>
                     {p.items.map((it) => (
                       <li key={it}>
                         <Check />
-                        {it}
+                        {rich(it)}
                       </li>
                     ))}
                   </ul>
@@ -122,7 +122,7 @@ export default function Pricing() {
                 {included.map((it) => (
                   <li key={it}>
                     <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
-                    <span>{it}</span>
+                    <span>{rich(it)}</span>
                   </li>
                 ))}
               </ul>

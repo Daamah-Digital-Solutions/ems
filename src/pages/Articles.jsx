@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ARTICLES } from '../data/articles'
 import { waLink } from '../constants'
-import { useLang } from '../i18n'
+import { useLang, rich } from '../i18n'
 import { WaIcon } from '../components/icons'
 import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
@@ -50,10 +50,10 @@ export default function Articles() {
                 </div>
                 <div className="body">
                   <span className="meta">
-                    {t(`art.${a.slug}.tag`)} <span className="s">·</span> {t(`art.${a.slug}.read`)}
+                    {t(`art.${a.slug}.tag`)} <span className="s">·</span> <bdi>{t(`art.${a.slug}.read`)}</bdi>
                   </span>
-                  <h3>{t(`art.${a.slug}.title`)}</h3>
-                  <p>{t(`art.${a.slug}.excerpt`)}</p>
+                  <h3>{rich(t(`art.${a.slug}.title`))}</h3>
+                  <p>{rich(t(`art.${a.slug}.excerpt`))}</p>
                   <span className="more">
                     {t('common.readArticle')} <span aria-hidden="true">→</span>
                   </span>

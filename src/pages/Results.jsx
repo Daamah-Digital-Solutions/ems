@@ -1,5 +1,5 @@
 import { waLink } from '../constants'
-import { useLang } from '../i18n'
+import { useLang, rich } from '../i18n'
 import { WaIcon } from '../components/icons'
 import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
@@ -19,7 +19,7 @@ export default function Results() {
             <h1 className="rv d1">
               {t('results.heroTitleA')}<span className="r">{t('results.heroTitleR')}</span>
             </h1>
-            <p className="lede rv d2">{t('results.lede')}</p>
+            <p className="lede rv d2">{rich(t('results.lede'))}</p>
             <div className="phead-cta rv d3">
               <a
                 className="btn-lg"
@@ -54,12 +54,12 @@ export default function Results() {
               <h2>
                 {t('results.expectTitleA')}<span className="r">{t('results.expectTitleR')}</span>
               </h2>
-              <p>{t('results.expectP')}</p>
+              <p>{rich(t('results.expectP'))}</p>
               <ul className="checklist">
                 {expect.map((it) => (
                   <li key={it}>
                     <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
-                    <span>{it}</span>
+                    <span>{rich(it)}</span>
                   </li>
                 ))}
               </ul>
@@ -83,7 +83,7 @@ export default function Results() {
             {reviews.map((r, i) => (
               <div className={`qcard rv${i % 3 ? ` d${i % 3}` : ''}`} key={r.name + i}>
                 <span className="qmark" aria-hidden="true">&ldquo;</span>
-                <blockquote>{r.quote}</blockquote>
+                <blockquote>{rich(r.quote)}</blockquote>
                 <div className="who">
                   <span className="avatar" aria-hidden="true">{r.initials}</span>
                   <div>

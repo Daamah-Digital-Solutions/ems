@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { WA, PHONE } from '../constants'
 import { LINKS, LEGAL } from '../nav'
-import { useLang } from '../i18n'
+import { useLang, rich } from '../i18n'
 import emsIcon from '../ems-icon.svg'
 
 export default function Footer() {
@@ -16,7 +16,7 @@ export default function Footer() {
           <img className="brand-mark" src={emsIcon} alt="" style={{ width: 40, height: 40 }} />
           <span className="wm">
             <b>EMS ElRiyadh</b>
-            <span>{t('footer.tagline')}</span>
+            <span>{rich(t('footer.tagline'))}</span>
           </span>
         </div>
         <div className="fcol">
@@ -41,7 +41,7 @@ export default function Footer() {
             {t('footer.whatsapp')}
           </a>
           <a href={WA} target="_blank" rel="noopener noreferrer">
-            {PHONE}
+            <bdi dir="ltr">{PHONE}</bdi>
           </a>
         </div>
       </div>

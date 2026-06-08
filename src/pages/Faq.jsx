@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { waLink } from '../constants'
-import { useLang } from '../i18n'
+import { useLang, rich } from '../i18n'
 import { WaIcon } from '../components/icons'
 import HeroIcon from '../components/HeroIcon'
 import CtaStrip from '../components/CtaStrip'
@@ -12,7 +12,7 @@ function Item({ q, a }) {
   return (
     <div className="fr">
       <button className="fq" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
-        {q}
+        {rich(q)}
         <span className="pm" aria-hidden="true" />
       </button>
       <div
@@ -20,7 +20,7 @@ function Item({ q, a }) {
         ref={ref}
         style={{ maxHeight: open && ref.current ? ref.current.scrollHeight : 0 }}
       >
-        <p>{a}</p>
+        <p>{rich(a)}</p>
       </div>
     </div>
   )

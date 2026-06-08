@@ -13,8 +13,8 @@ export default function Privacy() {
       body: [
         <p key="c">
           {t('legal.privacy.contactLead')}{' '}
-          <a href={`mailto:${EMAIL}`}>{EMAIL}</a> {t('legal.orWhatsApp')}{' '}
-          <a href={WA} target="_blank" rel="noopener noreferrer">{t('footer.whatsapp')} ({PHONE})</a>.
+          <a href={`mailto:${EMAIL}`}><bdi dir="ltr">{EMAIL}</bdi></a> {t('legal.orWhatsApp')}{' '}
+          <a href={WA} target="_blank" rel="noopener noreferrer">{t('footer.whatsapp')} (<bdi dir="ltr">{PHONE}</bdi>)</a>.
         </p>,
       ],
     },

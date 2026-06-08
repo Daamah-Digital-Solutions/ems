@@ -18,7 +18,7 @@ export default function CtaStrip({ lineKey = 'cta.defaultLine', msgKey = 'msg.se
           </a>
           <span className="ph">
             {t('common.orCall')}{' '}
-            <a href={WA} target="_blank" rel="noopener noreferrer">{PHONE}</a>
+            <a href={WA} target="_blank" rel="noopener noreferrer"><bdi dir="ltr">{PHONE}</bdi></a>
           </span>
         </div>
       </div>

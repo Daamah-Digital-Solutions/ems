@@ -1,5 +1,5 @@
 import { waLink } from '../constants'
-import { useLang } from '../i18n'
+import { useLang, rich } from '../i18n'
 import { Check } from './icons'
 
 // Non-copy config (style + WhatsApp message key) stays here; text from locale.
@@ -33,16 +33,16 @@ export default function Sessions() {
                 <span className="pn">{p.name}</span>
                 <div className="pt">
                   {p.titleR ? (
-                    <>{p.titleA}<span className="r">{p.titleR}</span></>
+                    <>{rich(p.titleA)}<span className="r">{rich(p.titleR)}</span></>
                   ) : (
-                    p.title
+                    rich(p.title)
                   )}
                 </div>
                 <ul>
                   {p.items.map((it) => (
                     <li key={it}>
                       <Check />
-                      {it}
+                      {rich(it)}
                     </li>
                   ))}
                 </ul>
@@ -58,7 +58,7 @@ export default function Sessions() {
             )
           })}
         </div>
-        <p className="fine">{t('sessions.fine')}</p>
+        <p className="fine">{rich(t('sessions.fine'))}</p>
       </div>
     </section>
   )

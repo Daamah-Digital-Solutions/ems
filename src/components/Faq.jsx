@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { useLang } from '../i18n'
+import { useLang, rich } from '../i18n'
 
 function Item({ q, a }) {
   const [open, setOpen] = useState(false)
@@ -7,7 +7,7 @@ function Item({ q, a }) {
   return (
     <div className="fr">
       <button className="fq" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
-        {q}
+        {rich(q)}
         <span className="pm" aria-hidden="true" />
       </button>
       <div
@@ -15,7 +15,7 @@ function Item({ q, a }) {
         ref={ref}
         style={{ maxHeight: open && ref.current ? ref.current.scrollHeight : 0 }}
       >
-        <p>{a}</p>
+        <p>{rich(a)}</p>
       </div>
     </div>
   )

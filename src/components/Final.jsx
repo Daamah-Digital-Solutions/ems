@@ -24,7 +24,7 @@ export default function Final() {
         <div className="ph">
           {t('common.orMessage')}{' '}
           <a href={WA} target="_blank" rel="noopener noreferrer">
-            {PHONE}
+            <bdi dir="ltr">{PHONE}</bdi>
           </a>
         </div>
       </div>

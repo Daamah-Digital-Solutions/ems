@@ -551,6 +551,13 @@ footer{background:var(--panel-2);border-top:1px solid var(--line-2);padding:clam
    ============================================================ */
 html[lang="ar"] body,
 html[lang="ar"] body *{font-family:"IBM Plex Sans Arabic","Plus Jakarta Sans",system-ui,sans-serif !important}
+/* BIDI: embedded Latin/number runs are wrapped in <bdi> (see i18n rich/bidi)
+   so they never reorder the surrounding Arabic. Assert the isolation, and force
+   pure-Latin/number values (stat figures, phone/email/IG) to read left-to-right. */
+bdi{unicode-bidi:isolate}
+html[dir="rtl"] .stat .v{direction:ltr;unicode-bidi:isolate}
+html[dir="rtl"] .fbadge .v{direction:ltr;unicode-bidi:isolate}
+html[dir="rtl"] .cm .v{direction:ltr;unicode-bidi:isolate;text-align:start}
 /* keep the Latin brand wordmark + loader in the display face */
 html[lang="ar"] .brand .wm b,
 html[lang="ar"] .foot .fb .wm b,
