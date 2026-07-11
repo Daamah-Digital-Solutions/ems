@@ -105,8 +105,17 @@ export default function Landing() {
   useEffect(() => {
     setLang('ar')
     document.title = 'احجز جلستك الأولى · EMS ElRiyadh — تدريب EMS في الرياض'
+    // Ad landing page — keep it out of organic search (don't dilute the home
+    // page). Remove on unmount so noindex never leaks to the rest of the site.
+    const robots = document.createElement('meta')
+    robots.setAttribute('name', 'robots')
+    robots.setAttribute('content', 'noindex, follow')
+    document.head.appendChild(robots)
     const raf = requestAnimationFrame(() => setGo(true))
-    return () => cancelAnimationFrame(raf)
+    return () => {
+      cancelAnimationFrame(raf)
+      robots.remove()
+    }
   }, [setLang])
 
   // Analytics + Meta Pixel Lead on every WhatsApp tap (ad conversion signal).
