@@ -16,6 +16,7 @@ import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import NotFound from './pages/NotFound'
+import Landing from './pages/Landing'
 
 export default function App() {
   const [loaded, setLoaded] = useState(false)
@@ -41,6 +42,8 @@ export default function App() {
 
   return (
     <Routes>
+      {/* Standalone ad landing page — no site nav/footer, Arabic + RTL. */}
+      <Route path="offer" element={<Landing />} />
       <Route element={<Layout loaded={loaded} />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
