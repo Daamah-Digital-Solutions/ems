@@ -17,8 +17,8 @@ const L = ({ children }) => <bdi dir="ltr">{children}</bdi>
 
 const BENEFITS = [
   {
-    title: 'الاستوديو يجي لك',
-    text: 'لا مواصلات ولا زحام. مدرّبك يحضر بالبدلة والنظام الكامل ويجهّز كل شيء في مكانك.',
+    title: 'الاستوديو يجيكِ',
+    text: 'لا مواصلات ولا زحام — نحضر لكِ بالبدلة والنظام الكامل ونجهّز كل شيء في مكانكِ.',
     icon: (
       <>
         <path d="M3 11l9-8 9 8" />
@@ -29,7 +29,7 @@ const BENEFITS = [
   },
   {
     title: '20 دقيقة فقط',
-    text: 'جلسة قصيرة ومكثّفة، مرتين أسبوعياً — تناسب أي جدول مهما كان مزدحماً.',
+    text: 'جلسة قصيرة ومكثّفة، مرتين أسبوعياً — تناسب أكثر الجداول ازدحاماً.',
     icon: (
       <>
         <circle cx="12" cy="12" r="9" />
@@ -38,8 +38,8 @@ const BENEFITS = [
     ),
   },
   {
-    title: 'مدرّب خاص لك وحدك',
-    text: 'تدريب فردي واحد لواحد، كل حركة موجّهة، والشدّة مضبوطة على مستواك تماماً.',
+    title: 'تدريب خاص لكِ وحدكِ',
+    text: 'تدريب فردي واحد لواحد، كل حركة موجّهة، والشدّة مضبوطة على مستواكِ تماماً.',
     icon: (
       <>
         <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
@@ -50,7 +50,7 @@ const BENEFITS = [
   },
   {
     title: 'خصوصية تامة',
-    text: 'في بيتك أو فندقك أو مجمّعك — هدوء وتركيز وراحة، بدون زحام ولا جمهور.',
+    text: 'في بيتكِ أو فندقكِ أو مجمّعكِ — هدوء وتركيز وراحة، بدون زحام ولا جمهور.',
     icon: (
       <>
         <path d="M12 3l7 3v5c0 4-3 7-7 8-4-1-7-4-7-8V6z" />
@@ -61,23 +61,23 @@ const BENEFITS = [
 ]
 
 const STEPS = [
-  { img: '/images/cut3.jpg', alt: 'وصول المدرّب بالبدلة والنظام', title: 'نحضر لك', text: 'مدرّبك يجيك بالبدلة والنظام الألماني كاملاً. تكون جاهزاً خلال دقائق — دون نادٍ ودون معدّات.' },
-  { img: '/images/final-hero.jpg', alt: 'جلسة تدريب موجّهة', title: 'تتدرّب', text: 'عشرون دقيقة موجّهة، نبضات مضبوطة تتزامن مع كل حركة، ومدرّبك معك في كل ثانية.' },
-  { img: '/images/cut2.jpg', alt: 'الاسترخاء بعد الجلسة', title: 'نمشي وانت مرتاح', text: 'نجمع كل شيء ونغادر — تبقى مفعماً بالنشاط، وبقيّة يومك لك بالكامل.' },
+  { img: '/images/cut3.jpg', alt: 'وصول فريق EMS ElRiyadh بالبدلة والنظام', title: 'نحضر لكِ', text: 'نصل إليكِ بالبدلة والنظام الألماني كاملاً. تكونين جاهزة خلال دقائق — دون نادٍ ودون معدّات.' },
+  { img: '/images/final-hero.jpg', alt: 'جلسة تدريب موجّهة', title: 'تتدرّبين', text: 'عشرون دقيقة موجّهة، ونبضات مضبوطة تتزامن مع كل حركة — بتوجيه كامل في كل ثانية.' },
+  { img: '/images/cut2.jpg', alt: 'الاسترخاء بعد الجلسة', title: 'نغادر وأنتِ مرتاحة', text: 'نجمع كل شيء ونغادر — تبقين مفعمة بالنشاط، وبقيّة يومكِ لكِ بالكامل.' },
 ]
 
 // PLACEHOLDER TESTIMONIALS — experiential only, no outcome/medical claims.
 const REVIEWS = [
-  { quote: 'وصلوا في الموعد تماماً وجهّزوا كل شيء، وبدأت التدريب خلال دقائق. دون نادٍ ودون تنقّل.', initials: 'أم', area: 'الرياض' }, // TODO: replace with real testimonial
-  { quote: 'عشرون دقيقة تناسب جدولي فعلاً، والاهتمام الفردي هو أفضل جزء. كل جلسة مضبوطة عليّ.', initials: 'نس', area: 'الرياض' }, // TODO: replace with real testimonial
-  { quote: 'ممارستها في المنزل أحدثت كل الفرق — خصوصية وسهولة، والحجز عبر واتساب أبسط ما يكون.', initials: 'له', area: 'الرياض' }, // TODO: replace with real testimonial
+  { quote: 'وصلوا في الموعد تماماً وجهّزوا كل شيء، وبدأتُ التدريب خلال دقائق. دون نادٍ ودون تنقّل.', initials: 'أ.م', area: 'الرياض' }, // TODO: replace with real testimonial
+  { quote: 'عشرون دقيقة تناسب جدولي فعلاً، والاهتمام الفردي هو أفضل جزء — كل جلسة مضبوطة عليّ.', initials: 'ن.س', area: 'الرياض' }, // TODO: replace with real testimonial
+  { quote: 'ممارستها في البيت أحدثت كل الفرق — خصوصية وسهولة، والحجز عبر واتساب أبسط ما يكون.', initials: 'ل.ه', area: 'الرياض' }, // TODO: replace with real testimonial
 ]
 
 const FAQ = [
-  ['هل هو مناسب لي؟', 'يدعم EMS اللياقة العامة والشدّ والقوة لكثير من البالغين النشطين. وكما هو الحال عند بدء أي تدريب جديد، نوصي بمراجعة طبيبك أولاً إن كانت لديك حالة صحية أو كنتِ حاملاً أو تستخدم جهازاً إلكترونياً مزروعاً مثل منظّم ضربات القلب. ويُجري مدرّبك حديثاً قصيراً للجاهزية قبل جلستك الأولى. EMS ElRiyadh خدمة تدريب لياقة، وليست جهازاً أو علاجاً طبياً.'],
-  ['هل أحتاج معدّات أو مساحة؟', 'لا شيء. نُحضر كل شيء — النظام الألماني وبدلة النبضات والمدرّب. أمتار قليلة من الأرضية تكفي، في المنزل أو الفندق أو المجمّع.'],
-  ['هل منطقتي مغطّاة؟', 'كل الرياض. لا أحياء محدّدة — إن كنت في المدينة، نجيك إليك أينما كنت.'],
-  ['كيف أحجز؟', 'برسالة واحدة على واتساب. نحدّد موعداً يناسبك، نؤكّد موقعك، ونصل جاهزين. بدون أي التزام.'],
+  ['هل هو مناسب لي؟', 'يدعم EMS اللياقة العامة والشدّ والقوة لكثير من البالغات النشيطات. وكما هو الحال عند بدء أي تدريب جديد، ننصحكِ بمراجعة طبيبكِ أولاً إن كانت لديكِ حالة صحية أو كنتِ حاملاً أو تستخدمين جهازاً إلكترونياً مزروعاً مثل منظّم ضربات القلب. ونُجري معكِ حديثاً قصيراً للجاهزية قبل جلستكِ الأولى. EMS ElRiyadh خدمة تدريب لياقة، وليست جهازاً أو علاجاً طبياً.'],
+  ['هل أحتاج معدّات أو مساحة؟', 'لا شيء. نحضر كل شيء — النظام الألماني وبدلة النبضات وكل التجهيزات. أمتار قليلة من الأرضية تكفي، في البيت أو الفندق أو المجمّع.'],
+  ['هل منطقتي مغطّاة؟', 'كل الرياض. لا أحياء محدّدة — إن كنتِ في المدينة، نصل إليكِ أينما كنتِ.'],
+  ['كيف أحجز؟', 'برسالة واحدة على واتساب. نحدّد موعداً يناسبكِ، نؤكّد موقعكِ، ونصل جاهزين. بدون أي التزام.'],
 ]
 
 function Faq({ q, a }) {
@@ -145,38 +145,38 @@ export default function Landing() {
         </span>
         <a className="lp-cta-mini" href={bookHref} target="_blank" rel="noopener noreferrer">
           <WaIcon />
-          احجز الآن
+          احجزي الآن
         </a>
       </header>
 
       {/* HERO */}
       <section className={`hero${go ? ' go' : ''}`}>
         <div className="hero-l">
-          <span className="lp-urgency">المواعيد محدودة أسبوعياً — احجز وقتك</span>
+          <span className="lp-urgency">الأماكن محدودة أسبوعياً — احجزي موعدكِ</span>
           <span className="eyebrow">تدريب <L>EMS</L> الشخصي · الرياض</span>
           <h1>
-            <span className="ln l1"><span>احجز جلستك</span></span>
+            <span className="ln l1"><span>احجزي جلستكِ</span></span>
             <span className="ln l2"><span className="r">الأولى.</span></span>
           </h1>
           <p className="sub">
-            تدريب <L>EMS</L> فردي فاخر بهندسة ألمانية — البدلة والمدرّب يجوك لباب بيتك أو فندقك أو
-            مجمّعك في الرياض. <b><L>20</L> دقيقة، مرتين أسبوعياً، بخصوصية تامة.</b>
+            تدريب <L>EMS</L> فردي فاخر بهندسة ألمانية — نحضر لكِ البدلة والنظام لباب بيتكِ أو فندقكِ أو
+            مجمّعكِ في الرياض. <b><L>20</L> دقيقة، مرتين أسبوعياً، بخصوصية تامة.</b>
           </p>
           <div className="hero-cta">
             <a className="btn-lg" href={bookHref} target="_blank" rel="noopener noreferrer">
               <WaIcon />
-              احجز جلستك الأولى عبر واتساب
+              احجزي جلستكِ الأولى عبر واتساب
             </a>
           </div>
           <p className="lp-micro">
             <span><span className="dot" /> ردّ سريع</span>
             <span><span className="dot" /> بدون التزام</span>
-            <span><span className="dot" /> اختر الوقت المناسب لك</span>
+            <span><span className="dot" /> اختاري الوقت المناسب لكِ</span>
           </p>
           <div className="trust">
             <span className="t"><span className="dot" /> <b>بهندسة ألمانية</b></span>
-            <span className="t"><span className="dot" /> <b>مدرّب خاص</b></span>
-            <span className="t"><span className="dot" /> في أي مكان بـ<b>الرياض</b></span>
+            <span className="t"><span className="dot" /> <b>خصوصية تامة</b></span>
+            <span className="t"><span className="dot" /> في كل <b>الرياض</b></span>
           </div>
         </div>
 
@@ -185,7 +185,7 @@ export default function Landing() {
             <path d="M70,540 C40,300 180,70 470,60 C300,120 150,300 220,560" />
           </svg>
           <div className="frame">
-            <img src="/images/final-hero.jpg" alt="مدرّب EMS ElRiyadh أثناء جلسة تدريب" decoding="async" />
+            <img src="/images/final-hero.jpg" alt="جلسة تدريب EMS ElRiyadh" decoding="async" />
           </div>
           <div className="fbadge b1">
             <span className="v"><L>20</L><small style={{ fontSize: '.6em' }}>′</small></span>
@@ -203,8 +203,8 @@ export default function Landing() {
         <div className="wrap">
           <div className="shead rv">
             <div>
-              <span className="eyebrow">ليه تختارنا</span>
-              <h2>تدريب يجي لك، <span className="r">وقت ما تحب.</span></h2>
+              <span className="eyebrow">ليه تختارينا</span>
+              <h2>تدريب يجيكِ، <span className="r">وقت ما تحبّي.</span></h2>
             </div>
           </div>
           <div className="benefits">
@@ -248,13 +248,13 @@ export default function Landing() {
         <div className="wrap">
           <div className="ctastrip" style={{ borderRadius: 24, border: '1px solid var(--line)' }}>
             <div className="wrap cta-in rv" style={{ padding: 'clamp(1.8rem,4vw,2.6rem) clamp(1.2rem,3vw,2rem)' }}>
-              <p className="ct">جاهز تبدأ؟ <span className="r">جلستك الأولى بانتظارك.</span></p>
+              <p className="ct">جاهزة للبدء؟ <span className="r">جلستكِ الأولى بانتظاركِ.</span></p>
               <div className="cta-act">
                 <a className="btn-lg" href={bookHref} target="_blank" rel="noopener noreferrer">
                   <WaIcon />
-                  احجز الآن
+                  احجزي الآن
                 </a>
-                <span className="ph">أو اتصل على <a href={WA} target="_blank" rel="noopener noreferrer"><bdi dir="ltr">{PHONE}</bdi></a></span>
+                <span className="ph">أو اتّصلي على <a href={WA} target="_blank" rel="noopener noreferrer"><bdi dir="ltr">{PHONE}</bdi></a></span>
               </div>
             </div>
           </div>
@@ -266,8 +266,8 @@ export default function Landing() {
         <div className="wrap">
           <div className="shead rv">
             <div>
-              <span className="eyebrow">آراء العملاء</span>
-              <h2>تجربة <span className="r">يتكلّم عنها الجميع.</span></h2>
+              <span className="eyebrow">آراء عميلاتنا</span>
+              <h2>تجربة <span className="r">تتحدّث عنها كل من جرّبتها.</span></h2>
             </div>
           </div>
           <div className="quotes">
@@ -294,7 +294,7 @@ export default function Landing() {
           <div className="shead rv" style={{ justifyContent: 'center', textAlign: 'center' }}>
             <div>
               <span className="eyebrow">أسئلة شائعة</span>
-              <h2>كل ما تريد <span className="r">معرفته.</span></h2>
+              <h2>كل ما تريدين <span className="r">معرفته.</span></h2>
             </div>
           </div>
           <div className="faq rv">
@@ -309,13 +309,13 @@ export default function Landing() {
       <section className="final">
         <img className="bg" loading="lazy" decoding="async" src="/images/cut2.jpg" alt="" aria-hidden="true" />
         <div className="in rv">
-          <h2>جاهز <span className="r">تبدأ؟</span></h2>
-          <p>رسالة واحدة، جلسة واحدة، ولا تنقّل. دع الاستوديو يجي لك.</p>
+          <h2>جاهزة <span className="r">للبدء؟</span></h2>
+          <p>رسالة واحدة، جلسة واحدة، ولا تنقّل. دَعي الاستوديو يجيكِ.</p>
           <a className="btn-lg" href={bookHref} target="_blank" rel="noopener noreferrer">
             <WaIcon />
-            احجز جلستك الأولى الآن
+            احجزي جلستكِ الأولى الآن
           </a>
-          <div className="ph">أو راسلنا على <a href={WA} target="_blank" rel="noopener noreferrer"><bdi dir="ltr">{PHONE}</bdi></a></div>
+          <div className="ph">أو راسلينا على <a href={WA} target="_blank" rel="noopener noreferrer"><bdi dir="ltr">{PHONE}</bdi></a></div>
         </div>
       </section>
 
@@ -330,7 +330,7 @@ export default function Landing() {
       <div className="mbook">
         <a href={bookHref} target="_blank" rel="noopener noreferrer">
           <WaIcon />
-          احجز جلستك الأولى
+          احجزي جلستكِ الأولى
         </a>
       </div>
     </div>
