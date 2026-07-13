@@ -1,0 +1,6 @@
+# Netlify SPA fallback — serve index.html for any path so React Router
+# can handle client-side routes on a direct hit / refresh (e.g. /offer,
+# /about, /articles/:slug). 200 = rewrite (URL stays put), not a redirect.
+# Real static files (favicon, images, sitemap.xml) are matched first, so
+# only unmatched routes fall through to the app.
+/*    /index.html   200
