@@ -15,6 +15,7 @@ import Article from './pages/Article'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
+import RefundPolicy from './pages/RefundPolicy'
 import NotFound from './pages/NotFound'
 import Landing from './pages/Landing'
 
@@ -57,6 +58,7 @@ export default function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
+        <Route path="refund-policy" element={<RefundPolicy />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

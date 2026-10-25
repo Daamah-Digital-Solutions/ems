@@ -15,4 +15,5 @@ export const LINKS = [
 export const LEGAL = [
   ['/privacy', 'nav.privacy'],
   ['/terms', 'nav.terms'],
+  ['/refund-policy', 'nav.refund'],
 ]

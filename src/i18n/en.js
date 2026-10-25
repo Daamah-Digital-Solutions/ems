@@ -56,6 +56,7 @@ const en = {
     contact: 'Contact',
     privacy: 'Privacy',
     terms: 'Terms',
+    refund: 'Refund Policy',
     toggleTheme: 'Toggle theme',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
@@ -452,6 +453,62 @@ const en = {
         { h: 'Changes to these terms', body: ['We may update these terms from time to time. When we do, we will revise the “last updated” date above.'] },
       ],
     },
+    refund: {
+      title: 'Subscriptions, Refunds & Alternatives',
+      accent: 'Policy',
+      updated: '25 October 2026',
+      intro: 'This policy explains the rules for payment and refunds, service substitution and membership transfer, suspension (freezing) of subscriptions, and exceptional force-majeure cases.',
+      contactLead: 'Questions about this policy? Email',
+      sections: [
+        {
+          h: 'Payment and refunds',
+          body: [
+            'Payments are final: All amounts paid for general memberships, personal training (PT) packages, Electrical Muscle Stimulation (EMS) packages, or any additional services are final and non-refundable (whether in cash or by bank card) once payment is completed, for any reason whatsoever.',
+          ],
+        },
+        {
+          h: 'Substitution and membership transfer',
+          body: [
+            'Substitution between services: The value of a general club membership cannot be substituted for personal training or EMS packages, or vice versa, after the membership has been activated.',
+            'Transfer of membership to another person (assignment):',
+            {
+              ul: [
+                'A general membership may be transferred to another person once only during the subscription period, against a specified administrative fee.',
+                'Personal training and EMS packages are tied exclusively to the client and may not be assigned or transferred to another person.',
+              ],
+            },
+          ],
+        },
+        {
+          h: 'Personal training and EMS rules',
+          body: [
+            'Package validity: Each personal training or EMS package is tied to a specific time period starting from the date of purchase. Any remaining sessions are automatically forfeited after the validity period ends, with no financial obligation on the club.',
+            'Cancelling or rescheduling sessions:',
+            {
+              ul: [
+                'The trainer or club management must be notified at least 24 hours before the session time.',
+                'The session is counted as fully used in the event of a late cancellation or a no-show without prior notice.',
+              ],
+            },
+            'Medical disclosure for the EMS service: The client undertakes to disclose any health contraindications to using EMS devices (such as a pacemaker, pregnancy, or epilepsy). Should a health contraindication arise after payment, the client is granted alternative credit toward other services suited to their health condition within the club, with no cash refund.',
+            'Change of trainer: Should the trainer assigned to the service be unable to continue, the club will provide a qualified replacement, without entitling the client to a refund of fees.',
+          ],
+        },
+        {
+          h: 'Suspension (freezing) of subscription',
+          body: [
+            'General membership: The member is entitled to freeze the membership in accordance with the periods specified for each package, by prior notice; freezing is not applied retroactively.',
+            'Personal training and EMS: The freeze service does not cover PT or EMS sessions, except where the general membership is frozen and they coincide with it.',
+          ],
+        },
+        {
+          h: 'Exceptional force-majeure cases',
+          body: [
+            'Should the member be permanently unable to exercise under an official medical report issued by an accredited authority, management may (at its discretion and exceptionally) transfer the remaining value of the sessions or subscription to an electronic wallet balance within the club for future use, or assign it to a first-degree relative, without disbursing any cash.',
+          ],
+        },
+      ],
+    },
     orWhatsApp: 'or message us on',
   },
 
@@ -478,6 +535,7 @@ const en = {
       '/contact': { title: 'Contact & Book · EMS ElRiyadh', desc: 'Book your EMS ElRiyadh session — share a few details and we’ll open WhatsApp with your message ready to send.' },
       '/privacy': { title: 'Privacy Policy · EMS ElRiyadh', desc: 'How EMS ElRiyadh collects and uses your information.' },
       '/terms': { title: 'Terms of Service · EMS ElRiyadh', desc: 'The terms for using the EMS ElRiyadh website and training with us.' },
+      '/refund-policy': { title: 'Subscriptions & Refunds Policy · EMS ElRiyadh', desc: 'Payment, refund, substitution, transfer, freeze and force-majeure rules for EMS ElRiyadh memberships and training packages.' },
     },
   },
 
