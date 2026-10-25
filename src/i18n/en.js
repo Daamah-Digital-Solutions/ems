@@ -453,61 +453,58 @@ const en = {
         { h: 'Changes to these terms', body: ['We may update these terms from time to time. When we do, we will revise the “last updated” date above.'] },
       ],
     },
+    // Single source for the /refund-policy page AND the branded PDFs
+    // (policy/build.mjs reads this block). Clause text is client-supplied.
     refund: {
+      eyebrow: 'Client policy',
+      tag: 'Legal document',
       title: 'Subscriptions, Refunds & Alternatives',
       accent: 'Policy',
-      updated: '25 October 2026',
+      short: 'Subscriptions, Refunds & Alternatives Policy',
       intro: 'This policy explains the rules for payment and refunds, service substitution and membership transfer, suspension (freezing) of subscriptions, and exceptional force-majeure cases.',
-      contactLead: 'Questions about this policy? Email',
-      sections: [
-        {
-          h: 'Payment and refunds',
-          body: [
-            'Payments are final: All amounts paid for general memberships, personal training (PT) packages, Electrical Muscle Stimulation (EMS) packages, or any additional services are final and non-refundable (whether in cash or by bank card) once payment is completed, for any reason whatsoever.',
-          ],
-        },
-        {
-          h: 'Substitution and membership transfer',
-          body: [
-            'Substitution between services: The value of a general club membership cannot be substituted for personal training or EMS packages, or vice versa, after the membership has been activated.',
-            'Transfer of membership to another person (assignment):',
-            {
-              ul: [
-                'A general membership may be transferred to another person once only during the subscription period, against a specified administrative fee.',
-                'Personal training and EMS packages are tied exclusively to the client and may not be assigned or transferred to another person.',
-              ],
-            },
-          ],
-        },
-        {
-          h: 'Personal training and EMS rules',
-          body: [
-            'Package validity: Each personal training or EMS package is tied to a specific time period starting from the date of purchase. Any remaining sessions are automatically forfeited after the validity period ends, with no financial obligation on the club.',
-            'Cancelling or rescheduling sessions:',
-            {
-              ul: [
-                'The trainer or club management must be notified at least 24 hours before the session time.',
-                'The session is counted as fully used in the event of a late cancellation or a no-show without prior notice.',
-              ],
-            },
-            'Medical disclosure for the EMS service: The client undertakes to disclose any health contraindications to using EMS devices (such as a pacemaker, pregnancy, or epilepsy). Should a health contraindication arise after payment, the client is granted alternative credit toward other services suited to their health condition within the club, with no cash refund.',
-            'Change of trainer: Should the trainer assigned to the service be unable to continue, the club will provide a qualified replacement, without entitling the client to a refund of fees.',
-          ],
-        },
-        {
-          h: 'Suspension (freezing) of subscription',
-          body: [
-            'General membership: The member is entitled to freeze the membership in accordance with the periods specified for each package, by prior notice; freezing is not applied retroactively.',
-            'Personal training and EMS: The freeze service does not cover PT or EMS sessions, except where the general membership is frozen and they coincide with it.',
-          ],
-        },
-        {
-          h: 'Exceptional force-majeure cases',
-          body: [
-            'Should the member be permanently unable to exercise under an official medical report issued by an accredited authority, management may (at its discretion and exceptionally) transfer the remaining value of the sessions or subscription to an electronic wallet balance within the club for future use, or assign it to a first-degree relative, without disbursing any cash.',
-          ],
-        },
+      meta: { sections: 'Sections', scope: 'Applies to', scopeValue: 'Memberships · PT · EMS' },
+      download: 'Download PDF',
+      glanceTitle: 'At a glance',
+      glanceNote: 'A summary for convenience — the detailed clauses below govern.',
+      tiles: [
+        ['Final', 'All payments are final and non-refundable once completed.'],
+        ['24h', 'Minimum notice to cancel or reschedule a session.'],
+        ['1×', 'A general membership can be transferred once, for an admin fee.'],
+        ['Personal', 'PT & EMS packages are tied to the client and non-transferable.'],
       ],
+      tocTitle: 'Contents',
+      sections: [
+        { title: 'Payment and refunds', clauses: [
+          { label: 'Payments are final', text: 'All amounts paid for general memberships, personal training (PT) packages, Electrical Muscle Stimulation (EMS) packages, or any additional services are final and non-refundable (whether in cash or by bank card) once payment is completed, for any reason whatsoever.' },
+        ] },
+        { title: 'Substitution and membership transfer', clauses: [
+          { label: 'Substitution between services', text: 'The value of a general club membership cannot be substituted for personal training or EMS packages, or vice versa, after the membership has been activated.' },
+          { label: 'Transfer of membership to another person (assignment)', items: [
+            'A general membership may be transferred to another person once only during the subscription period, against a specified administrative fee.',
+            'Personal training and EMS packages are tied exclusively to the client and may not be assigned or transferred to another person.',
+          ] },
+        ] },
+        { title: 'Personal training and EMS rules', clauses: [
+          { label: 'Package validity', text: 'Each personal training or EMS package is tied to a specific time period starting from the date of purchase. Any remaining sessions are automatically forfeited after the validity period ends, with no financial obligation on the club.' },
+          { label: 'Cancelling or rescheduling sessions', items: [
+            'The trainer or club management must be notified at least 24 hours before the session time.',
+            'The session is counted as fully used in the event of a late cancellation or a no-show without prior notice.',
+          ] },
+          { label: 'Medical disclosure for the EMS service', text: 'The client undertakes to disclose any health contraindications to using EMS devices (such as a pacemaker, pregnancy, or epilepsy). Should a health contraindication arise after payment, the client is granted alternative credit toward other services suited to their health condition within the club, with no cash refund.' },
+          { label: 'Change of trainer', text: 'Should the trainer assigned to the service be unable to continue, the club will provide a qualified replacement, without entitling the client to a refund of fees.' },
+        ] },
+        { title: 'Suspension (freezing) of subscription', clauses: [
+          { label: 'General membership', text: 'The member is entitled to freeze the membership in accordance with the periods specified for each package, by prior notice; freezing is not applied retroactively.' },
+          { label: 'Personal training and EMS', text: 'The freeze service does not cover PT or EMS sessions, except where the general membership is frozen and they coincide with it.' },
+        ] },
+        { title: 'Exceptional force-majeure cases', clauses: [
+          { text: 'Should the member be permanently unable to exercise under an official medical report issued by an accredited authority, management may (at its discretion and exceptionally) transfer the remaining value of the sessions or subscription to an electronic wallet balance within the club for future use, or assign it to a first-degree relative, without disbursing any cash.' },
+        ] },
+      ],
+      contactTitle: 'Questions about this policy?',
+      contactSub: 'Reach our team directly — we are happy to help.',
+      contactLabels: ['WhatsApp', 'Email', 'Website'],
+      disclaimer: 'EMS ElRiyadh — premium German-engineered fitness & wellbeing service, powered by MyoStyle®. Not a medical device or treatment.',
     },
     orWhatsApp: 'or message us on',
   },
